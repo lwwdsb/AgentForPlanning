@@ -53,6 +53,7 @@ python scripts/run_examples.py
 | [评估](docs/03-evaluation.md) | 预期/实际、全部 FR/SC 映射、限制 |
 | [AI 使用](docs/04-ai-usage.md) | AI 辅助、用户修改、验证来源 |
 | [复盘](docs/05-retrospective.md) | 实际用时、难点与未完成部分 |
+| [个人修改与人工验收](docs/08-personal-review.md) | 修改取舍、学习收获、输出/费用/失败/重复执行核对 |
 | [独立审查与修复](docs/07-review-fixes.md) | 两项问题、回归反例、同版真实验收与限制 |
 | [正常方案](examples/mock/normal/artifact.json) | 活动内容、引用、假设、实际依赖与费用明细 |
 | [预算改选 Trace](examples/mock/budget-replan/trace.jsonl) | 12 超限 → 8 可行 → 生成 → 重估 → 保存 |
