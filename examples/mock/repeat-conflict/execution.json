@@ -1,0 +1,33 @@
+{
+  "command": [
+    "python",
+    "-m",
+    "content_agent",
+    "run",
+    "--input",
+    "examples/mock/repeat-conflict/input.json",
+    "--mode",
+    "mock",
+    "--request-id",
+    "normal",
+    "--state",
+    ".state/evaluation-f813bd9c77ed44f194cbea01719787b0.db"
+  ],
+  "started_at": "2026-10-28T04:16:35.509652+00:00",
+  "elapsed_seconds": 0.038449,
+  "exit_code": 4,
+  "stderr": "",
+  "counts_before": {
+    "requests": 1,
+    "events": 30,
+    "ledger": 1,
+    "artifacts": 1
+  },
+  "counts_after": {
+    "requests": 1,
+    "events": 30,
+    "ledger": 1,
+    "artifacts": 1
+  },
+  "trace_note": "没有新执行；trace_ref 指向 normal 的原始记录。"
+}

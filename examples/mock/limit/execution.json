@@ -1,0 +1,24 @@
+{
+  "command": [
+    "python",
+    "-m",
+    "content_agent",
+    "run",
+    "--input",
+    "examples/inputs/limit.json",
+    "--mode",
+    "mock",
+    "--request-id",
+    "limit",
+    "--state",
+    ".state/evaluation-f813bd9c77ed44f194cbea01719787b0.db",
+    "--max-rounds",
+    "1",
+    "--evidence-dir",
+    "examples/mock/limit"
+  ],
+  "started_at": "2026-10-28T04:16:36.263659+00:00",
+  "elapsed_seconds": 0.044076,
+  "exit_code": 3,
+  "stderr": ""
+}

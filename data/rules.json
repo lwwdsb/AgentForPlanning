@@ -1,0 +1,42 @@
+{
+  "version": "1.0",
+  "currency": "simulated_units",
+  "failure_cost_minor": 0,
+  "tools": {
+    "search_materials": {
+      "success_cost_minor": 0,
+      "success_duration_seconds": 60,
+      "failure_duration_seconds": 30
+    },
+    "estimate_cost": {
+      "success_cost_minor": 0,
+      "success_duration_seconds": 0,
+      "failure_duration_seconds": 0
+    },
+    "save_plan": {
+      "success_cost_minor": 0,
+      "success_duration_seconds": 60,
+      "failure_duration_seconds": 30
+    }
+  },
+  "variants": {
+    "premium": {
+      "available": true,
+      "success_cost_minor": 1200,
+      "success_duration_seconds": 1200,
+      "failure_duration_seconds": 120
+    },
+    "standard": {
+      "available": true,
+      "success_cost_minor": 800,
+      "success_duration_seconds": 600,
+      "failure_duration_seconds": 60
+    },
+    "lean": {
+      "available": true,
+      "success_cost_minor": 300,
+      "success_duration_seconds": 300,
+      "failure_duration_seconds": 30
+    }
+  }
+}

@@ -1,0 +1,966 @@
+{
+  "artifact_history": [
+    {
+      "artifact": {
+        "artifact_id": "script_8febbd500f514f66bb91a0e6d14a08c0",
+        "candidate_revision": 1,
+        "content": {
+          "assumptions": [
+            "目标和受众为规划假设，待运营确认"
+          ],
+          "assumptions_are_user_facts": false,
+          "audience": "校园读者",
+          "goal": "推广主题活动",
+          "text": "【离线示例脚本】校园读书周；内容形式：主题图文。素材依据：【合成素材】校园读书周提供书单分享、读书打卡和读后感交流。活动地点与具体日期待运营确认。 【合成素材】可使用图文预告、短视频或精简文案。参与者可分享一本推荐书及理由；不承诺奖品或参与人数。 执行建议：发布活动预告，引导参与者按已确认规则参与，汇总反馈。具体发布时间、地点、渠道和活动规则由运营确认；不承诺人数、奖品或转化效果。"
+        },
+        "kind": "script",
+        "request_id": "normal",
+        "source_ids": [
+          "reading-1",
+          "reading-2"
+        ],
+        "validity": "valid"
+      },
+      "candidate_id": "candidate_b2f2d7f34476db22fec287ad",
+      "reusable": true
+    }
+  ],
+  "attempts": [
+    {
+      "action": "search_materials",
+      "actual_duration_seconds": 7.312488742172718e-05,
+      "arguments": {
+        "decision_summary": "离线 Mock 根据实际工具观察选择动作，仅验证流程。",
+        "query": "校园读书周"
+      },
+      "attempt_id": "attempt_9720a3dda2714feb96da7f46465c251e",
+      "duration_seconds": 60,
+      "error": null,
+      "quality": "complete",
+      "result": {
+        "gap": null,
+        "materials": [
+          {
+            "material_id": "reading-1",
+            "tags": [
+              "校园",
+              "读书",
+              "阅读"
+            ],
+            "text": "【合成素材】校园读书周提供书单分享、读书打卡和读后感交流。活动地点与具体日期待运营确认。",
+            "topic": "校园读书周",
+            "version": "1.0"
+          },
+          {
+            "material_id": "reading-2",
+            "tags": [
+              "校园",
+              "读书"
+            ],
+            "text": "【合成素材】可使用图文预告、短视频或精简文案。参与者可分享一本推荐书及理由；不承诺奖品或参与人数。",
+            "topic": "校园读书周",
+            "version": "1.0"
+          }
+        ]
+      },
+      "round": 1,
+      "status": "succeeded",
+      "step_id": "step_c9407b8c4dff441e931487e1760815fc"
+    },
+    {
+      "action": "estimate_cost",
+      "actual_duration_seconds": 0.0001318750437349081,
+      "arguments": {
+        "assumptions": [
+          "目标和受众为规划假设，待运营确认"
+        ],
+        "audience": "校园读者",
+        "decision_summary": "离线 Mock 根据实际工具观察选择动作，仅验证流程。",
+        "goal": "推广主题活动",
+        "material_ids": [
+          "reading-1",
+          "reading-2"
+        ],
+        "variant": "standard"
+      },
+      "attempt_id": "attempt_6a60eb5f60264980a6d2b66a10962b6a",
+      "duration_seconds": 0,
+      "error": null,
+      "quality": "complete",
+      "result": {
+        "assumptions_are_user_facts": false,
+        "budget_gap": "0.00",
+        "candidate": {
+          "assumptions": [
+            "目标和受众为规划假设，待运营确认"
+          ],
+          "audience": "校园读者",
+          "candidate_id": "candidate_b2f2d7f34476db22fec287ad",
+          "estimate_id": "estimate_9d533ab9a8a644f5ac4795ac4f9aaf76",
+          "goal": "推广主题活动",
+          "material_ids": [
+            "reading-1",
+            "reading-2"
+          ],
+          "revision": 1,
+          "variant": "standard"
+        },
+        "candidate_id": "candidate_b2f2d7f34476db22fec287ad",
+        "candidate_revision": 1,
+        "context_digest": "5ff39c67507cd6a2c949697f601dc058638fc8880127d34e348a176c7ff60b22",
+        "estimate_id": "estimate_9d533ab9a8a644f5ac4795ac4f9aaf76",
+        "estimated_finish_utc": "2026-10-28T04:28:35.357081Z",
+        "feasible": true,
+        "gap_scope": "current_candidate",
+        "projected_total_minor": 800,
+        "remaining_cost_minor": 800,
+        "remaining_seconds": 660,
+        "required_artifacts": [
+          "reading-1",
+          "reading-2"
+        ],
+        "rules_digest": "08948a809baa1382a09a86d4bdd008c7fee927add1e9dfbfb62ae38fca06e4bf",
+        "spent_at_quote": 0,
+        "violations": []
+      },
+      "round": 2,
+      "status": "succeeded",
+      "step_id": "step_cac299a16ac340fbb29e3c86534f7ea8"
+    },
+    {
+      "action": "generate_script",
+      "actual_duration_seconds": 0.00016483315266668797,
+      "arguments": {
+        "candidate_id": "candidate_b2f2d7f34476db22fec287ad",
+        "decision_summary": "离线 Mock 根据实际工具观察选择动作，仅验证流程。",
+        "estimate_id": "estimate_9d533ab9a8a644f5ac4795ac4f9aaf76",
+        "material_ids": [
+          "reading-1",
+          "reading-2"
+        ],
+        "script_draft": "【离线示例脚本】校园读书周；内容形式：主题图文。素材依据：【合成素材】校园读书周提供书单分享、读书打卡和读后感交流。活动地点与具体日期待运营确认。 【合成素材】可使用图文预告、短视频或精简文案。参与者可分享一本推荐书及理由；不承诺奖品或参与人数。 执行建议：发布活动预告，引导参与者按已确认规则参与，汇总反馈。具体发布时间、地点、渠道和活动规则由运营确认；不承诺人数、奖品或转化效果。"
+      },
+      "attempt_id": "attempt_005e7ac3745f4b3ea18622a7c30068e8",
+      "duration_seconds": 600,
+      "error": null,
+      "quality": "complete",
+      "result": {
+        "artifact_id": "script_8febbd500f514f66bb91a0e6d14a08c0",
+        "candidate_revision": 1,
+        "content": {
+          "assumptions": [
+            "目标和受众为规划假设，待运营确认"
+          ],
+          "assumptions_are_user_facts": false,
+          "audience": "校园读者",
+          "goal": "推广主题活动",
+          "text": "【离线示例脚本】校园读书周；内容形式：主题图文。素材依据：【合成素材】校园读书周提供书单分享、读书打卡和读后感交流。活动地点与具体日期待运营确认。 【合成素材】可使用图文预告、短视频或精简文案。参与者可分享一本推荐书及理由；不承诺奖品或参与人数。 执行建议：发布活动预告，引导参与者按已确认规则参与，汇总反馈。具体发布时间、地点、渠道和活动规则由运营确认；不承诺人数、奖品或转化效果。"
+        },
+        "kind": "script",
+        "request_id": "normal",
+        "source_ids": [
+          "reading-1",
+          "reading-2"
+        ],
+        "validity": "valid"
+      },
+      "round": 3,
+      "status": "succeeded",
+      "step_id": "step_f957b1689fcc4287bd3fe9121473605c"
+    },
+    {
+      "action": "estimate_cost",
+      "actual_duration_seconds": 0.0002241248730570078,
+      "arguments": {
+        "assumptions": [
+          "目标和受众为规划假设，待运营确认"
+        ],
+        "audience": "校园读者",
+        "decision_summary": "离线 Mock 根据实际工具观察选择动作，仅验证流程。",
+        "goal": "推广主题活动",
+        "material_ids": [
+          "reading-1",
+          "reading-2"
+        ],
+        "variant": "standard"
+      },
+      "attempt_id": "attempt_b00c2575d92d4d51aeb273029fd6b5be",
+      "duration_seconds": 0,
+      "error": null,
+      "quality": "complete",
+      "result": {
+        "assumptions_are_user_facts": false,
+        "budget_gap": "0.00",
+        "candidate": {
+          "assumptions": [
+            "目标和受众为规划假设，待运营确认"
+          ],
+          "audience": "校园读者",
+          "candidate_id": "candidate_b2f2d7f34476db22fec287ad",
+          "estimate_id": "estimate_5b274222caf245e6a9059de0f84b38e4",
+          "goal": "推广主题活动",
+          "material_ids": [
+            "reading-1",
+            "reading-2"
+          ],
+          "revision": 1,
+          "variant": "standard"
+        },
+        "candidate_id": "candidate_b2f2d7f34476db22fec287ad",
+        "candidate_revision": 1,
+        "context_digest": "908bbccfde2da53f9e0d636724265f7e3e07ba6720494cc7a9990f3d6a915afb",
+        "estimate_id": "estimate_5b274222caf245e6a9059de0f84b38e4",
+        "estimated_finish_utc": "2026-10-28T04:28:35.363833Z",
+        "feasible": true,
+        "gap_scope": "current_candidate",
+        "projected_total_minor": 800,
+        "remaining_cost_minor": 0,
+        "remaining_seconds": 60,
+        "required_artifacts": [
+          "script_8febbd500f514f66bb91a0e6d14a08c0"
+        ],
+        "rules_digest": "08948a809baa1382a09a86d4bdd008c7fee927add1e9dfbfb62ae38fca06e4bf",
+        "spent_at_quote": 800,
+        "violations": []
+      },
+      "round": 4,
+      "status": "succeeded",
+      "step_id": "step_5f32916412284c6eb1d564eba5cab3cc"
+    },
+    {
+      "action": "save_plan",
+      "actual_duration_seconds": 0.00026783300563693047,
+      "arguments": {
+        "candidate_id": "candidate_b2f2d7f34476db22fec287ad",
+        "decision_summary": "离线 Mock 根据实际工具观察选择动作，仅验证流程。",
+        "estimate_id": "estimate_5b274222caf245e6a9059de0f84b38e4",
+        "script_id": "script_8febbd500f514f66bb91a0e6d14a08c0"
+      },
+      "attempt_id": "attempt_bf20423d0dd84dff8f69987da639007b",
+      "duration_seconds": 60,
+      "error": null,
+      "quality": "complete",
+      "result": {
+        "artifact_id": "plan_c0ce12f47da840ba9aba8716154edc88",
+        "location": "artifacts/plan_c0ce12f47da840ba9aba8716154edc88"
+      },
+      "round": 5,
+      "status": "succeeded",
+      "step_id": "step_243eae918e7a4dcba4bde3c7fbc8c636"
+    }
+  ],
+  "costs": {
+    "budget": "10.00",
+    "budget_gap": "0.00",
+    "gap_scope": "current_candidate",
+    "minimum_known_required": "8.00",
+    "minimum_scope": "assessed_candidates",
+    "projected_total": "8.00",
+    "remaining_budget": "2.00",
+    "remaining_estimate": "0.00",
+    "spent_total": "8.00",
+    "unknown_reason": null
+  },
+  "evidence_export_error": null,
+  "execution": {
+    "fault": "none",
+    "max_rounds": 12,
+    "rounds_used": 6,
+    "tool_calls": 5
+  },
+  "input_issues": [],
+  "mode": "mock",
+  "plan": {
+    "assumptions_are_user_facts": false,
+    "candidates": [
+      {
+        "assumptions": [
+          "目标和受众为规划假设，待运营确认"
+        ],
+        "audience": "校园读者",
+        "candidate_id": "candidate_b2f2d7f34476db22fec287ad",
+        "estimate_id": "estimate_5b274222caf245e6a9059de0f84b38e4",
+        "goal": "推广主题活动",
+        "material_ids": [
+          "reading-1",
+          "reading-2"
+        ],
+        "revision": 1,
+        "variant": "standard"
+      }
+    ],
+    "current_candidate": {
+      "assumptions": [
+        "目标和受众为规划假设，待运营确认"
+      ],
+      "audience": "校园读者",
+      "candidate_id": "candidate_b2f2d7f34476db22fec287ad",
+      "estimate_id": "estimate_5b274222caf245e6a9059de0f84b38e4",
+      "goal": "推广主题活动",
+      "material_ids": [
+        "reading-1",
+        "reading-2"
+      ],
+      "revision": 1,
+      "variant": "standard"
+    },
+    "task_plan": [
+      {
+        "action": "search_materials",
+        "status": "succeeded"
+      },
+      {
+        "action": "estimate_cost",
+        "status": "succeeded"
+      },
+      {
+        "action": "generate_script",
+        "status": "succeeded"
+      },
+      {
+        "action": "save_plan",
+        "status": "succeeded"
+      }
+    ]
+  },
+  "reason_code": "request_conflict",
+  "remaining_work": [],
+  "request_id": "normal",
+  "reusable_artifacts": {
+    "materials": [
+      {
+        "material_id": "reading-1",
+        "tags": [
+          "校园",
+          "读书",
+          "阅读"
+        ],
+        "text": "【合成素材】校园读书周提供书单分享、读书打卡和读后感交流。活动地点与具体日期待运营确认。",
+        "topic": "校园读书周",
+        "version": "1.0"
+      },
+      {
+        "material_id": "reading-2",
+        "tags": [
+          "校园",
+          "读书"
+        ],
+        "text": "【合成素材】可使用图文预告、短视频或精简文案。参与者可分享一本推荐书及理由；不承诺奖品或参与人数。",
+        "topic": "校园读书周",
+        "version": "1.0"
+      }
+    ],
+    "scripts": {
+      "candidate_b2f2d7f34476db22fec287ad": {
+        "artifact_id": "script_8febbd500f514f66bb91a0e6d14a08c0",
+        "candidate_revision": 1,
+        "content": {
+          "assumptions": [
+            "目标和受众为规划假设，待运营确认"
+          ],
+          "assumptions_are_user_facts": false,
+          "audience": "校园读者",
+          "goal": "推广主题活动",
+          "text": "【离线示例脚本】校园读书周；内容形式：主题图文。素材依据：【合成素材】校园读书周提供书单分享、读书打卡和读后感交流。活动地点与具体日期待运营确认。 【合成素材】可使用图文预告、短视频或精简文案。参与者可分享一本推荐书及理由；不承诺奖品或参与人数。 执行建议：发布活动预告，引导参与者按已确认规则参与，汇总反馈。具体发布时间、地点、渠道和活动规则由运营确认；不承诺人数、奖品或转化效果。"
+        },
+        "kind": "script",
+        "request_id": "normal",
+        "source_ids": [
+          "reading-1",
+          "reading-2"
+        ],
+        "validity": "valid"
+      }
+    }
+  },
+  "reused": false,
+  "run_id": "run_6a94059443414121a16e02fa26721056",
+  "saved_plan": {
+    "artifact_id": "plan_c0ce12f47da840ba9aba8716154edc88",
+    "location": "artifacts/plan_c0ce12f47da840ba9aba8716154edc88",
+    "state_path": ".state/evaluation-f813bd9c77ed44f194cbea01719787b0.db"
+  },
+  "schema_version": "1.0.0",
+  "status": "input_conflict",
+  "steps": [
+    {
+      "artifact_ids": [
+        "reading-1",
+        "reading-2"
+      ],
+      "candidate_revision": null,
+      "depends_on": [],
+      "kind": "search_materials",
+      "reusable": true,
+      "status": "succeeded",
+      "step_id": "step_c9407b8c4dff441e931487e1760815fc"
+    },
+    {
+      "artifact_ids": [],
+      "candidate_revision": 1,
+      "depends_on": [
+        "step_c9407b8c4dff441e931487e1760815fc"
+      ],
+      "kind": "estimate_cost",
+      "reusable": true,
+      "status": "succeeded",
+      "step_id": "step_cac299a16ac340fbb29e3c86534f7ea8"
+    },
+    {
+      "artifact_ids": [
+        "script_8febbd500f514f66bb91a0e6d14a08c0"
+      ],
+      "candidate_revision": 1,
+      "depends_on": [
+        "step_c9407b8c4dff441e931487e1760815fc",
+        "step_cac299a16ac340fbb29e3c86534f7ea8"
+      ],
+      "kind": "generate_script",
+      "reusable": true,
+      "status": "succeeded",
+      "step_id": "step_f957b1689fcc4287bd3fe9121473605c"
+    },
+    {
+      "artifact_ids": [],
+      "candidate_revision": 1,
+      "depends_on": [
+        "step_c9407b8c4dff441e931487e1760815fc"
+      ],
+      "kind": "estimate_cost",
+      "reusable": true,
+      "status": "succeeded",
+      "step_id": "step_5f32916412284c6eb1d564eba5cab3cc"
+    },
+    {
+      "artifact_ids": [
+        "plan_c0ce12f47da840ba9aba8716154edc88"
+      ],
+      "candidate_revision": 1,
+      "depends_on": [
+        "step_f957b1689fcc4287bd3fe9121473605c",
+        "step_5f32916412284c6eb1d564eba5cab3cc"
+      ],
+      "kind": "save_plan",
+      "reusable": true,
+      "status": "succeeded",
+      "step_id": "step_243eae918e7a4dcba4bde3c7fbc8c636"
+    }
+  ],
+  "time": {
+    "actual_elapsed_seconds": 0.020126958144828677,
+    "deadline_met": true,
+    "deadline_utc": "2026-10-29T04:16:35.317631Z",
+    "estimated_finish_utc": "2026-10-28T04:28:35.373041Z",
+    "logical_now_utc": "2026-10-28T04:28:35.373041Z",
+    "simulated_elapsed_seconds": 720,
+    "simulation_extra_seconds": 719.9994942089543
+  },
+  "tool_results": [
+    {
+      "action": "search_materials",
+      "artifact_ids": [
+        "reading-1",
+        "reading-2"
+      ],
+      "candidate_id": null,
+      "cost_delta": "0.00",
+      "error": null,
+      "estimate_id": null,
+      "estimated_finish_utc": null,
+      "feasible": null,
+      "max_rounds": 12,
+      "projected_total": null,
+      "quality": "complete",
+      "remaining_budget": "10.00",
+      "result": {
+        "gap": null,
+        "materials": [
+          {
+            "material_id": "reading-1",
+            "tags": [
+              "校园",
+              "读书",
+              "阅读"
+            ],
+            "text": "【合成素材】校园读书周提供书单分享、读书打卡和读后感交流。活动地点与具体日期待运营确认。",
+            "topic": "校园读书周",
+            "version": "1.0"
+          },
+          {
+            "material_id": "reading-2",
+            "tags": [
+              "校园",
+              "读书"
+            ],
+            "text": "【合成素材】可使用图文预告、短视频或精简文案。参与者可分享一本推荐书及理由；不承诺奖品或参与人数。",
+            "topic": "校园读书周",
+            "version": "1.0"
+          }
+        ]
+      },
+      "rounds_used": 1,
+      "spent_total": "0.00",
+      "status": "success",
+      "steps": [
+        {
+          "artifact_ids": [
+            "reading-1",
+            "reading-2"
+          ],
+          "candidate_revision": null,
+          "depends_on": [],
+          "kind": "search_materials",
+          "reusable": true,
+          "status": "succeeded",
+          "step_id": "step_c9407b8c4dff441e931487e1760815fc"
+        }
+      ],
+      "violations": []
+    },
+    {
+      "action": "estimate_cost",
+      "artifact_ids": [],
+      "budget_gap": "0.00",
+      "candidate_id": "candidate_b2f2d7f34476db22fec287ad",
+      "cost_delta": "0.00",
+      "error": null,
+      "estimate_id": "estimate_9d533ab9a8a644f5ac4795ac4f9aaf76",
+      "estimated_finish_utc": "2026-10-28T04:28:35.357081Z",
+      "feasible": true,
+      "max_rounds": 12,
+      "projected_total": "8.00",
+      "projected_total_minor": 800,
+      "quality": "complete",
+      "remaining_budget": "10.00",
+      "remaining_cost_minor": 800,
+      "remaining_seconds": 660,
+      "result": {
+        "assumptions_are_user_facts": false,
+        "budget_gap": "0.00",
+        "candidate": {
+          "assumptions": [
+            "目标和受众为规划假设，待运营确认"
+          ],
+          "audience": "校园读者",
+          "candidate_id": "candidate_b2f2d7f34476db22fec287ad",
+          "estimate_id": "estimate_9d533ab9a8a644f5ac4795ac4f9aaf76",
+          "goal": "推广主题活动",
+          "material_ids": [
+            "reading-1",
+            "reading-2"
+          ],
+          "revision": 1,
+          "variant": "standard"
+        },
+        "candidate_id": "candidate_b2f2d7f34476db22fec287ad",
+        "candidate_revision": 1,
+        "context_digest": "5ff39c67507cd6a2c949697f601dc058638fc8880127d34e348a176c7ff60b22",
+        "estimate_id": "estimate_9d533ab9a8a644f5ac4795ac4f9aaf76",
+        "estimated_finish_utc": "2026-10-28T04:28:35.357081Z",
+        "feasible": true,
+        "gap_scope": "current_candidate",
+        "projected_total_minor": 800,
+        "remaining_cost_minor": 800,
+        "remaining_seconds": 660,
+        "required_artifacts": [
+          "reading-1",
+          "reading-2"
+        ],
+        "rules_digest": "08948a809baa1382a09a86d4bdd008c7fee927add1e9dfbfb62ae38fca06e4bf",
+        "spent_at_quote": 0,
+        "violations": []
+      },
+      "rounds_used": 2,
+      "spent_total": "0.00",
+      "status": "success",
+      "steps": [
+        {
+          "artifact_ids": [
+            "reading-1",
+            "reading-2"
+          ],
+          "candidate_revision": null,
+          "depends_on": [],
+          "kind": "search_materials",
+          "reusable": true,
+          "status": "succeeded",
+          "step_id": "step_c9407b8c4dff441e931487e1760815fc"
+        },
+        {
+          "artifact_ids": [],
+          "candidate_revision": 1,
+          "depends_on": [
+            "step_c9407b8c4dff441e931487e1760815fc"
+          ],
+          "kind": "estimate_cost",
+          "reusable": true,
+          "status": "succeeded",
+          "step_id": "step_cac299a16ac340fbb29e3c86534f7ea8"
+        }
+      ],
+      "violations": []
+    },
+    {
+      "action": "generate_script",
+      "artifact_ids": [
+        "script_8febbd500f514f66bb91a0e6d14a08c0"
+      ],
+      "candidate_id": "candidate_b2f2d7f34476db22fec287ad",
+      "cost_delta": "8.00",
+      "error": null,
+      "estimate_id": null,
+      "estimated_finish_utc": null,
+      "feasible": null,
+      "max_rounds": 12,
+      "projected_total": null,
+      "quality": "complete",
+      "remaining_budget": "2.00",
+      "result": {
+        "artifact_id": "script_8febbd500f514f66bb91a0e6d14a08c0",
+        "candidate_revision": 1,
+        "content": {
+          "assumptions": [
+            "目标和受众为规划假设，待运营确认"
+          ],
+          "assumptions_are_user_facts": false,
+          "audience": "校园读者",
+          "goal": "推广主题活动",
+          "text": "【离线示例脚本】校园读书周；内容形式：主题图文。素材依据：【合成素材】校园读书周提供书单分享、读书打卡和读后感交流。活动地点与具体日期待运营确认。 【合成素材】可使用图文预告、短视频或精简文案。参与者可分享一本推荐书及理由；不承诺奖品或参与人数。 执行建议：发布活动预告，引导参与者按已确认规则参与，汇总反馈。具体发布时间、地点、渠道和活动规则由运营确认；不承诺人数、奖品或转化效果。"
+        },
+        "kind": "script",
+        "request_id": "normal",
+        "source_ids": [
+          "reading-1",
+          "reading-2"
+        ],
+        "validity": "valid"
+      },
+      "rounds_used": 3,
+      "spent_total": "8.00",
+      "status": "success",
+      "steps": [
+        {
+          "artifact_ids": [
+            "reading-1",
+            "reading-2"
+          ],
+          "candidate_revision": null,
+          "depends_on": [],
+          "kind": "search_materials",
+          "reusable": true,
+          "status": "succeeded",
+          "step_id": "step_c9407b8c4dff441e931487e1760815fc"
+        },
+        {
+          "artifact_ids": [],
+          "candidate_revision": 1,
+          "depends_on": [
+            "step_c9407b8c4dff441e931487e1760815fc"
+          ],
+          "kind": "estimate_cost",
+          "reusable": true,
+          "status": "succeeded",
+          "step_id": "step_cac299a16ac340fbb29e3c86534f7ea8"
+        },
+        {
+          "artifact_ids": [
+            "script_8febbd500f514f66bb91a0e6d14a08c0"
+          ],
+          "candidate_revision": 1,
+          "depends_on": [
+            "step_c9407b8c4dff441e931487e1760815fc",
+            "step_cac299a16ac340fbb29e3c86534f7ea8"
+          ],
+          "kind": "generate_script",
+          "reusable": true,
+          "status": "succeeded",
+          "step_id": "step_f957b1689fcc4287bd3fe9121473605c"
+        }
+      ],
+      "violations": []
+    },
+    {
+      "action": "estimate_cost",
+      "artifact_ids": [],
+      "budget_gap": "0.00",
+      "candidate_id": "candidate_b2f2d7f34476db22fec287ad",
+      "cost_delta": "0.00",
+      "error": null,
+      "estimate_id": "estimate_5b274222caf245e6a9059de0f84b38e4",
+      "estimated_finish_utc": "2026-10-28T04:28:35.363833Z",
+      "feasible": true,
+      "max_rounds": 12,
+      "projected_total": "8.00",
+      "projected_total_minor": 800,
+      "quality": "complete",
+      "remaining_budget": "2.00",
+      "remaining_cost_minor": 0,
+      "remaining_seconds": 60,
+      "result": {
+        "assumptions_are_user_facts": false,
+        "budget_gap": "0.00",
+        "candidate": {
+          "assumptions": [
+            "目标和受众为规划假设，待运营确认"
+          ],
+          "audience": "校园读者",
+          "candidate_id": "candidate_b2f2d7f34476db22fec287ad",
+          "estimate_id": "estimate_5b274222caf245e6a9059de0f84b38e4",
+          "goal": "推广主题活动",
+          "material_ids": [
+            "reading-1",
+            "reading-2"
+          ],
+          "revision": 1,
+          "variant": "standard"
+        },
+        "candidate_id": "candidate_b2f2d7f34476db22fec287ad",
+        "candidate_revision": 1,
+        "context_digest": "908bbccfde2da53f9e0d636724265f7e3e07ba6720494cc7a9990f3d6a915afb",
+        "estimate_id": "estimate_5b274222caf245e6a9059de0f84b38e4",
+        "estimated_finish_utc": "2026-10-28T04:28:35.363833Z",
+        "feasible": true,
+        "gap_scope": "current_candidate",
+        "projected_total_minor": 800,
+        "remaining_cost_minor": 0,
+        "remaining_seconds": 60,
+        "required_artifacts": [
+          "script_8febbd500f514f66bb91a0e6d14a08c0"
+        ],
+        "rules_digest": "08948a809baa1382a09a86d4bdd008c7fee927add1e9dfbfb62ae38fca06e4bf",
+        "spent_at_quote": 800,
+        "violations": []
+      },
+      "rounds_used": 4,
+      "spent_total": "8.00",
+      "status": "success",
+      "steps": [
+        {
+          "artifact_ids": [
+            "reading-1",
+            "reading-2"
+          ],
+          "candidate_revision": null,
+          "depends_on": [],
+          "kind": "search_materials",
+          "reusable": true,
+          "status": "succeeded",
+          "step_id": "step_c9407b8c4dff441e931487e1760815fc"
+        },
+        {
+          "artifact_ids": [],
+          "candidate_revision": 1,
+          "depends_on": [
+            "step_c9407b8c4dff441e931487e1760815fc"
+          ],
+          "kind": "estimate_cost",
+          "reusable": true,
+          "status": "succeeded",
+          "step_id": "step_cac299a16ac340fbb29e3c86534f7ea8"
+        },
+        {
+          "artifact_ids": [
+            "script_8febbd500f514f66bb91a0e6d14a08c0"
+          ],
+          "candidate_revision": 1,
+          "depends_on": [
+            "step_c9407b8c4dff441e931487e1760815fc",
+            "step_cac299a16ac340fbb29e3c86534f7ea8"
+          ],
+          "kind": "generate_script",
+          "reusable": true,
+          "status": "succeeded",
+          "step_id": "step_f957b1689fcc4287bd3fe9121473605c"
+        },
+        {
+          "artifact_ids": [],
+          "candidate_revision": 1,
+          "depends_on": [
+            "step_c9407b8c4dff441e931487e1760815fc"
+          ],
+          "kind": "estimate_cost",
+          "reusable": true,
+          "status": "succeeded",
+          "step_id": "step_5f32916412284c6eb1d564eba5cab3cc"
+        }
+      ],
+      "violations": []
+    },
+    {
+      "action": "save_plan",
+      "artifact_ids": [
+        "plan_c0ce12f47da840ba9aba8716154edc88"
+      ],
+      "candidate_id": "candidate_b2f2d7f34476db22fec287ad",
+      "cost_delta": "0.00",
+      "error": null,
+      "estimate_id": null,
+      "estimated_finish_utc": null,
+      "feasible": null,
+      "max_rounds": 12,
+      "projected_total": null,
+      "quality": "complete",
+      "remaining_budget": "2.00",
+      "result": {
+        "artifact_id": "plan_c0ce12f47da840ba9aba8716154edc88",
+        "location": "artifacts/plan_c0ce12f47da840ba9aba8716154edc88"
+      },
+      "rounds_used": 5,
+      "spent_total": "8.00",
+      "status": "success",
+      "steps": [
+        {
+          "artifact_ids": [
+            "reading-1",
+            "reading-2"
+          ],
+          "candidate_revision": null,
+          "depends_on": [],
+          "kind": "search_materials",
+          "reusable": true,
+          "status": "succeeded",
+          "step_id": "step_c9407b8c4dff441e931487e1760815fc"
+        },
+        {
+          "artifact_ids": [],
+          "candidate_revision": 1,
+          "depends_on": [
+            "step_c9407b8c4dff441e931487e1760815fc"
+          ],
+          "kind": "estimate_cost",
+          "reusable": true,
+          "status": "succeeded",
+          "step_id": "step_cac299a16ac340fbb29e3c86534f7ea8"
+        },
+        {
+          "artifact_ids": [
+            "script_8febbd500f514f66bb91a0e6d14a08c0"
+          ],
+          "candidate_revision": 1,
+          "depends_on": [
+            "step_c9407b8c4dff441e931487e1760815fc",
+            "step_cac299a16ac340fbb29e3c86534f7ea8"
+          ],
+          "kind": "generate_script",
+          "reusable": true,
+          "status": "succeeded",
+          "step_id": "step_f957b1689fcc4287bd3fe9121473605c"
+        },
+        {
+          "artifact_ids": [],
+          "candidate_revision": 1,
+          "depends_on": [
+            "step_c9407b8c4dff441e931487e1760815fc"
+          ],
+          "kind": "estimate_cost",
+          "reusable": true,
+          "status": "succeeded",
+          "step_id": "step_5f32916412284c6eb1d564eba5cab3cc"
+        },
+        {
+          "artifact_ids": [
+            "plan_c0ce12f47da840ba9aba8716154edc88"
+          ],
+          "candidate_revision": 1,
+          "depends_on": [
+            "step_f957b1689fcc4287bd3fe9121473605c",
+            "step_5f32916412284c6eb1d564eba5cab3cc"
+          ],
+          "kind": "save_plan",
+          "reusable": true,
+          "status": "succeeded",
+          "step_id": "step_243eae918e7a4dcba4bde3c7fbc8c636"
+        }
+      ],
+      "violations": []
+    },
+    {
+      "action": "finish",
+      "artifact_ids": [],
+      "candidate_id": null,
+      "cost_delta": "0.00",
+      "error": null,
+      "estimate_id": null,
+      "estimated_finish_utc": null,
+      "feasible": null,
+      "max_rounds": 12,
+      "projected_total": null,
+      "quality": "complete",
+      "remaining_budget": "2.00",
+      "result": {
+        "outcome": "completed"
+      },
+      "rounds_used": 6,
+      "spent_total": "8.00",
+      "status": "success",
+      "steps": [
+        {
+          "artifact_ids": [
+            "reading-1",
+            "reading-2"
+          ],
+          "candidate_revision": null,
+          "depends_on": [],
+          "kind": "search_materials",
+          "reusable": true,
+          "status": "succeeded",
+          "step_id": "step_c9407b8c4dff441e931487e1760815fc"
+        },
+        {
+          "artifact_ids": [],
+          "candidate_revision": 1,
+          "depends_on": [
+            "step_c9407b8c4dff441e931487e1760815fc"
+          ],
+          "kind": "estimate_cost",
+          "reusable": true,
+          "status": "succeeded",
+          "step_id": "step_cac299a16ac340fbb29e3c86534f7ea8"
+        },
+        {
+          "artifact_ids": [
+            "script_8febbd500f514f66bb91a0e6d14a08c0"
+          ],
+          "candidate_revision": 1,
+          "depends_on": [
+            "step_c9407b8c4dff441e931487e1760815fc",
+            "step_cac299a16ac340fbb29e3c86534f7ea8"
+          ],
+          "kind": "generate_script",
+          "reusable": true,
+          "status": "succeeded",
+          "step_id": "step_f957b1689fcc4287bd3fe9121473605c"
+        },
+        {
+          "artifact_ids": [],
+          "candidate_revision": 1,
+          "depends_on": [
+            "step_c9407b8c4dff441e931487e1760815fc"
+          ],
+          "kind": "estimate_cost",
+          "reusable": true,
+          "status": "succeeded",
+          "step_id": "step_5f32916412284c6eb1d564eba5cab3cc"
+        },
+        {
+          "artifact_ids": [
+            "plan_c0ce12f47da840ba9aba8716154edc88"
+          ],
+          "candidate_revision": 1,
+          "depends_on": [
+            "step_f957b1689fcc4287bd3fe9121473605c",
+            "step_5f32916412284c6eb1d564eba5cab3cc"
+          ],
+          "kind": "save_plan",
+          "reusable": true,
+          "status": "succeeded",
+          "step_id": "step_243eae918e7a4dcba4bde3c7fbc8c636"
+        }
+      ],
+      "violations": []
+    }
+  ],
+  "trace_ref": {
+    "run_id": "run_6a94059443414121a16e02fa26721056"
+  }
+}

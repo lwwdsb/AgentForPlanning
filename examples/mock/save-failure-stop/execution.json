@@ -1,0 +1,26 @@
+{
+  "command": [
+    "python",
+    "-m",
+    "content_agent",
+    "run",
+    "--input",
+    "examples/inputs/save-failure.json",
+    "--mode",
+    "mock",
+    "--request-id",
+    "save-failure-stop",
+    "--state",
+    ".state/evaluation-f813bd9c77ed44f194cbea01719787b0.db",
+    "--fault",
+    "save-once",
+    "--max-rounds",
+    "5",
+    "--evidence-dir",
+    "examples/mock/save-failure-stop"
+  ],
+  "started_at": "2026-10-28T04:16:36.058072+00:00",
+  "elapsed_seconds": 0.059897,
+  "exit_code": 3,
+  "stderr": ""
+}

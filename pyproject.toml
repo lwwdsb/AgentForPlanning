@@ -1,0 +1,21 @@
+[build-system]
+requires = ["setuptools==80.9.0", "wheel==0.45.1"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "content-planning-agent"
+version = "0.1.0"
+description = "Bounded content campaign planner with observable tool decisions"
+requires-python = ">=3.12"
+dependencies = []
+
+[project.scripts]
+content-agent = "content_agent.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+addopts = "-ra"

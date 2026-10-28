@@ -1,0 +1,26 @@
+{
+  "command": [
+    "python",
+    "-m",
+    "content_agent",
+    "run",
+    "--input",
+    "examples/inputs/tool-failure.json",
+    "--mode",
+    "mock",
+    "--request-id",
+    "tool-failure",
+    "--state",
+    ".state/evaluation-f813bd9c77ed44f194cbea01719787b0.db",
+    "--data-dir",
+    "examples/fixtures/tool-failure",
+    "--fault",
+    "generate-once",
+    "--evidence-dir",
+    "examples/mock/tool-failure"
+  ],
+  "started_at": "2026-10-28T04:16:35.920410+00:00",
+  "elapsed_seconds": 0.075584,
+  "exit_code": 0,
+  "stderr": ""
+}
