@@ -9,7 +9,7 @@ from urllib.parse import urlsplit, urlunsplit
 from uuid import uuid4
 
 from .domain import dumps
-from .providers import MockProvider, RealProvider
+from .providers import MockProvider, RealProvider, provider_profile, DECISION_POLICY_VERSION
 from .runner import run_request
 from .store import Store, export_evidence
 
@@ -82,7 +82,7 @@ def config_for(args):
             authority=host+(':'+str(parts.port) if parts.port else '')
             safe_endpoint=urlunsplit((parts.scheme,authority,parts.path,'',''))
         except ValueError:safe_endpoint='<invalid_endpoint>'
-        config.update(model=os.environ.get('MODEL_NAME',''),endpoint=safe_endpoint)
+        config.update(model=os.environ.get('MODEL_NAME',''),endpoint=safe_endpoint,provider_profile=provider_profile(safe_endpoint),decision_policy_version=DECISION_POLICY_VERSION)
     return config
 
 

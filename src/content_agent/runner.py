@@ -136,10 +136,19 @@ def run_request(raw, request_id, config, data, store, provider=None, clock=None,
                 clean,call_id,name,args=parse_action(message,used_ids)
                 used_ids.add(call_id)
             except ModelError as exc:
+                import re
+                code=str(exc)
+                allowed={'invalid_assistant','expected_one_tool_call','invalid_tool_call','invalid_tool_call_id',
+                         'invalid_function','response_too_large','invalid_choices','refused_or_truncated',
+                         'credential_in_response','model_transport_or_protocol_error'}
+                safe_code=code if code in allowed or re.fullmatch(r'model_http_[0-9]{3}',code) else 'model_error'
                 run.tick(clock,start)
+                persist([{'event_type':'model_failed','payload':{'error_type':safe_code}}])
                 terminal('model_error')
                 break
             run.tick(clock,start)
+            metadata=getattr(provider,'last_response_metadata',None)
+            if metadata is not None:persist([{'event_type':'model_response','payload':metadata}])
             run.messages.append(clean)
             persist([{'event_type':'decision','payload':{'assistant':clean,'tool_call_id':call_id,
                 'decision_summary':args.get('decision_summary') if isinstance(args,dict) else None,

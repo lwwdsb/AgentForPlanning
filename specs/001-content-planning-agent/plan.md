@@ -4,7 +4,7 @@
 **Date**: 2026-10-27 | **Spec**: [spec.md](spec.md)
 
 **Input**: Feature specification from `specs/001-content-planning-agent/spec.md`。
-**Stage**: 本地实现与离线验证完成；真实模型动态路径按用户安排延后，当前事实与证据见 docs/03-evaluation.md。
+**Stage**: 本地实现、离线验证与 DeepSeek 两条真实动态路径完成，当前事实与限制见 docs/03-evaluation.md。
 
 ## Summary
 

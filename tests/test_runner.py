@@ -252,3 +252,13 @@ def test_time_after_save_can_prevent_completion_preserving_artifact(raw,config,d
     result=run_request(raw,'late',config,data,store,Late(),clock)
     assert result['status']=='incomplete' and result['saved_plan']
     assert result['time']['deadline_met'] is False
+
+
+def test_generated_script_observation_supplies_exact_requote_fields(raw,config,data,store,clock):
+    result=run_request(raw,'requote-help',config,data,store,MockProvider(),clock)
+    generated=next(o for o in result['tool_results'] if o['action']=='generate_script')
+    requirement=generated['next_requirements']
+    assert requirement['before_save']=='estimate_cost'
+    assert requirement['candidate_arguments']=={k:result['plan']['current_candidate'][k]
+        for k in ('variant','material_ids','goal','audience','assumptions')}
+    assert 'decision_summary' not in requirement['candidate_arguments']

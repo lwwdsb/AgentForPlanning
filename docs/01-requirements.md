@@ -15,6 +15,6 @@
 | 重复执行 | 同 ID 同条件零新增；条件变更拒绝；新 ID 独立执行 |
 | 部分结果 | 保留内容和缺口，状态 failed/partial，不收费，不用作成功依赖 |
 | 时间与上限 | 不忽略模型等待，不重置历史耗时，最后一轮没有额外调用 |
-| 真实动态决策 | 两条真实工具观察驱动路径；当前待配置模型后验证 |
+| 真实动态决策 | DeepSeek 两条真实路径已取得：12→8；生成失败后改选 lean，详见评估 |
 
 完整、权威需求见 [spec.md](../specs/001-content-planning-agent/spec.md)，治理规则见 [constitution.md](../.specify/memory/constitution.md)。实现与测试映射见 [评估](03-evaluation.md)，避免维护相互冲突的第二份详细规格。

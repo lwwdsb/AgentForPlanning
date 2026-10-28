@@ -1,0 +1,32 @@
+{
+  "case": "tool-failure",
+  "request_id": "real-tool-failure-20261028T051100Z-d8590f",
+  "started_at": "2026-10-28T05:11:00.904704+00:00",
+  "elapsed_seconds": 12.58140645781532,
+  "exit_code": 0,
+  "acceptance_path_passed": false,
+  "command": [
+    "python",
+    "-m",
+    "content_agent",
+    "run",
+    "--input",
+    ".state/real-inputs/real-tool-failure-20261028T051100Z-d8590f.json",
+    "--mode",
+    "real",
+    "--request-id",
+    "real-tool-failure-20261028T051100Z-d8590f",
+    "--state",
+    ".state/real-evaluation.db",
+    "--data-dir",
+    "examples/fixtures/tool-failure",
+    "--max-rounds",
+    "12",
+    "--evidence-dir",
+    "examples/real/attempts/real-tool-failure-20261028T051100Z-d8590f",
+    "--fault",
+    "generate-once"
+  ],
+  "stderr": "",
+  "provider_profile": "deepseek-beta-nonthinking-v1"
+}

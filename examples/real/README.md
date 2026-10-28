@@ -1,10 +1,30 @@
-# 真实模型证据：尚未生成
+# DeepSeek 真实模型验证
 
-用户明确选择先完成离线验证，真实模型稍后配置。本次未调用真实模型，也没有产生真实模型输出或 Trace。
+2026-10-27（America/Los_Angeles）使用 `deepseek-flash`，端点 `https://api.deepseek.com/beta/chat/completions`，关闭 thinking，启用原生 strict 工具调用。凭据只来自本机 `.env`，没有提交到仓库。
 
-待配置 MODEL_ENDPOINT、MODEL_NAME、MODEL_API_KEY 后，按根目录 README 的 real 命令运行两条路径：
+| 验收路径 | 实际结果 | 模拟业务费用 | 轮次 | 证据 |
+|---|---|---:|---:|---|
+| 预算改选 | premium 报价 12 超限，模型改选 standard 8，生成后重估、保存、结束 | 8.00 | 7 | [输出](budget-replan/output.json) · [Trace](budget-replan/trace.jsonl) |
+| 工具失败改选 | standard 首次生成失败，模型改选 lean，保留素材与原失败，重估保存 | 3.00 | 8 | [输出](tool-failure/output.json) · [Trace](tool-failure/trace.jsonl) |
 
-1. budget-replan：实际观察 12.00 超限后，模型改选 8.00，重估并保存或明确停止。
-2. tool-failure：实际生成失败后，模型保留检索成果并选择替代或停止。
+这证明上述实际运行中发生了观察驱动的动作调整，不代表任意输入或模型版本都能可靠完成。业务工具仍为本地合成工具；模型 token 账单与模拟业务预算分开。
 
-只有实际命中目标路径才能完成 T046。HTTP 协议夹具测试与 Mock Trace 均不计为此处的真实证据。
+`attempts/` 保留全部四次原始运行，没有补写或删除失败路径：
+
+- 第一次预算运行：出现 12→8，但模型在重估时将流程状态添加到 assumptions，形成新候选并停止；本地预算与依赖守卫正确拒绝了错误保存。
+- 第二次预算运行：增加精确重估字段的反馈与提示（decision_policy_version=content-planning-v2）后，完成保存。
+- 第一次故障运行：模型显式重试同一候选后完成，业务成功，但未命中既定的“选择替代形式”验收点。
+- 第二次故障运行：按已批准规格补充“生成失败时优先评估未失败形式”的通用提示（content-planning-v3），由模型自主选择 lean 并完成。没有在执行器硬编码替代选择。
+
+预算成功证据对应 v2，故障成功证据对应 v3；v3 新增内容只涉及生成失败后的策略。各次实际版本、请求 ID、模型响应标识和 token usage 位于 manifest/Trace，汇总见 [运行汇总](summary.json)。未为获得相同结果无限重试，也没有将未命中路径标为通过。
+
+复现（会调用真实 API 并产生模型费用，每次最多 12 轮）：
+
+```bash
+python scripts/run_real_examples.py --env-file .env --case budget-replan
+python scripts/run_real_examples.py --env-file .env --case tool-failure
+```
+
+每次使用新请求和未来截止时间，证据进入唯一的 `attempts/` 目录。已有主验收目录保留，新的实际结果始终在对应尝试目录中。
+
+协议依据：[DeepSeek 工具调用](https://api-docs.deepseek.com/guides/tool_calls/) 与 [Chat Completions](https://api-docs.deepseek.com/api/create-chat-completion/)。DeepSeek 不支持的 schema 长度关键字仅从发送格式移除；执行器仍执行原有长度、引用、预算、依赖和时间校验。

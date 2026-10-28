@@ -1,6 +1,6 @@
 # CLI Contract: content-agent
 
-**Version**: 1.0.0（已实现；真实端点/模型组合尚未实测）
+**Version**: 1.0.0（已实现；DeepSeek beta + deepseek-flash 两条路径已实测，其他组合未验证）
 **Related**: [数据模型](../data-model.md)、[模型与工具](model-and-tools.md)。
 
 ## 命令

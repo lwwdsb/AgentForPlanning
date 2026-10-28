@@ -11,7 +11,7 @@
     "--request-id",
     "save-failure-stop",
     "--state",
-    ".state/evaluation-f813bd9c77ed44f194cbea01719787b0.db",
+    ".state/evaluation-763a4c748fa846d198b79e23ddf97c2f.db",
     "--fault",
     "save-once",
     "--max-rounds",
@@ -19,8 +19,8 @@
     "--evidence-dir",
     "examples/mock/save-failure-stop"
   ],
-  "started_at": "2026-10-28T04:16:36.058072+00:00",
-  "elapsed_seconds": 0.059897,
+  "started_at": "2026-10-28T05:15:17.790104+00:00",
+  "elapsed_seconds": 0.065658,
   "exit_code": 3,
   "stderr": ""
 }

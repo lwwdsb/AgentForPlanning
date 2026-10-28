@@ -125,7 +125,10 @@ class ToolExecutor:
                          'assumptions':c['assumptions'], 'assumptions_are_user_facts':False},
                         c['material_ids'], c['revision']))
         run.scripts[c['candidate_id']] = script
-        return {'status':'success','result':script,'artifact_ids':[script['artifact_id']], 'candidate_id':c['candidate_id']}
+        return {'status':'success','result':script,'artifact_ids':[script['artifact_id']], 'candidate_id':c['candidate_id'],
+                'next_requirements':{'before_save':'estimate_cost',
+                    'candidate_arguments':{k:c[k] for k in ('variant','material_ids','goal','audience','assumptions')},
+                    'reason':'脚本已生成，账本与产物改变；使用相同业务字段重估。运行状态写 decision_summary，不加入 assumptions。'}}
 
     def save_plan(self, run, args):
         c = self.candidate(run,args['candidate_id'])

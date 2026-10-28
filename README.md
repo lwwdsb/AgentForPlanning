@@ -4,7 +4,7 @@
 
 仓库：[lwwdsb/AgentForPlanning](https://github.com/lwwdsb/AgentForPlanning)。仓库公开。最终提交 SHA 通过 `git rev-parse HEAD` 获取；不把 SHA 写回同一个提交。
 
-**当前验证边界：离线功能和协议测试通过；真实模型的两条动态决策路径尚未验证。用户选择先完成离线验证。Mock 只证明流程、状态和费用，不证明真实模型决策效果。**
+**当前验证：离线测试通过，并已用 DeepSeek `deepseek-flash` 验证预算改选与生成失败改选两条真实路径。原始成功、失败和提示修订记录见 [真实评估](examples/real/README.md)。这些运行不代表所有输入的可靠性；Mock 仍只证明流程。**
 
 ## 安装与最短演示
 
@@ -92,15 +92,24 @@ SQLite `artifacts` 表中的方案是权威产物，`saved_plan.location` 是库
 
 故障参数：`generate-once`、`generate-always`、`save-once`、`partial-generate`，默认 `none`。所有注入均记入配置、指纹和 Trace。一次保存失败未恢复返回未完成；模型显式重试成功后才能完成，失败记录不会覆盖。
 
-## 真实模型入口（尚未实测）
+## 真实模型入口（DeepSeek 已实测）
 
 在当前 shell 安全配置 `MODEL_ENDPOINT`（完整 HTTPS Chat Completions URL）、`MODEL_NAME`、`MODEL_API_KEY`。密钥只由真实适配器发送至指定端点，不写入日志或参数；不要把密钥粘贴到聊天、命令历史或仓库。程序不自动读取 `.env`，变量声明见 [.env.example](.env.example)。
 
 ```bash
-content-agent run --input examples/inputs/budget-replan.json --mode real --request-id real-budget-1 --state .state/real.db --data-dir examples/fixtures/budget-replan --evidence-dir examples/real/budget-replan
-content-agent run --input examples/inputs/tool-failure.json --mode real --request-id real-failure-1 --state .state/real.db --data-dir examples/fixtures/tool-failure --fault generate-once --evidence-dir examples/real/tool-failure
+content-agent run --input examples/inputs/budget-replan.json --mode real --request-id real-budget-1 --state .state/real.db --data-dir examples/fixtures/budget-replan --evidence-dir .state/manual-evidence/budget-replan
+content-agent run --input examples/inputs/tool-failure.json --mode real --request-id real-failure-1 --state .state/real.db --data-dir examples/fixtures/tool-failure --fault generate-once --evidence-dir .state/manual-evidence/tool-failure
 ```
 
-先用批量脚本刷新输入日期。端点需支持原生 `tools`、`strict` schema、`tool_choice=required` 和禁用并行工具调用；目前没有已实测的端点/模型组合，不能承诺任意兼容服务可用。HTTP 单次 socket 超时 30 秒、响应上限 1 MiB、禁止重定向、无隐式重试；出错明确终止，不回退 Mock。真实 token 费用不在合成业务预算中。
+先用批量脚本刷新输入日期。端点需支持原生 `tools`、`strict` schema、`tool_choice=required` 和禁用并行工具调用；已实测 `https://api.deepseek.com/beta/chat/completions` + `deepseek-flash`；其他端点/模型组合需另行验证。DeepSeek 配置关闭 thinking，并适配其支持的 schema 关键字；本地长度与业务守卫不放宽。HTTP 单次 socket 超时 30 秒、响应上限 1 MiB、禁止重定向、无隐式重试；出错明确终止，不回退 Mock。真实 token 费用不在合成业务预算中。
 
-只有实际观察到超预算后的改选，以及工具失败后的调整或停止，才计为真实决策证据；不能用离线 Trace 补写真实执行。当前这两项按用户安排延后。
+只有实际观察到超预算后的改选，以及工具失败后的调整或停止，才计为真实决策证据；不能用离线 Trace 补写真实执行。两条验收路径现已取得，首次未命中的运行也保留在 `examples/real/attempts/`。
+
+也可复制 `.env.example` 为本机 `.env` 后填写密钥，用不执行 shell 语句的评估脚本显式加载：
+
+```bash
+python scripts/run_real_examples.py --env-file .env --case budget-replan
+python scripts/run_real_examples.py --env-file .env --case tool-failure
+```
+
+脚本逐次保留实际输入和输出，不会覆盖已有主验收证据。`.env` 不提交 Git，主 CLI 仍不自动加载该文件。

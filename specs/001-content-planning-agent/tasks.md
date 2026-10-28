@@ -9,7 +9,7 @@ description: "内容任务规划 Agent 的按用户故事组织的实施与验�
 [data-model.md](data-model.md)、[contracts/cli.md](contracts/cli.md)、
 [contracts/model-and-tools.md](contracts/model-and-tools.md)、[quickstart.md](quickstart.md)。
 **Governance**: [项目宪章](../../.specify/memory/constitution.md)。
-**Status**: 本地实现、113 项离线测试、实际场景及干净环境复现完成；51/52 项完成；仅 T046 按用户安排延后，公开仓库提交已完成。
+**Status**: 本地实现、116 项离线测试、实际场景、干净环境复现及两条 DeepSeek 真实路径完成；52/52 项完成；公开仓库已交付，最终更新 SHA 见交付消息。
 
 **Tests**: 规格 FR-023 及宪章明确要求可执行测试，因此包含测试任务。
 测试先按契约和业务结果编写，确认相应待实现行为失败，再实现和验证；不要求用户逐次批准测试。
@@ -168,7 +168,7 @@ US1–US5 为 P1，US6 为 P2，但六个故事均属于完整考核交付范围
 - [X] T043 [P] [US6] 在 docs/01-requirements.md 和 docs/02-solution.md 撰写评审文档，引用本规格和设计而不维护冲突需求，明确用户、范围、成功标准、模型观察驱动流程、状态依赖、费用/时间口径、幂等与原生实现取舍（依赖 T040–T041；可与 T042、T044 并行）。
 - [X] T044 [P] [US6] 在 docs/04-ai-usage.md 和 docs/05-retrospective.md 如实记录 AI 生成内容、已发生的人工修改及各自验证、最难问题、学习收获、实际用时、未完成部分和下一步；没有人工修改则明确注明，不能代用户虚构贡献（依赖 T040–T041；可与 T042–T043 并行）。
 - [X] T045 [US6] 实际运行默认离线测试及 quickstart.md 的正常、信息/资料不足、工具失败、预算重规划、无解、上限与重复场景，将结果写入 examples/test-results/pytest.xml 和对应 examples/mock/ 目录；在 docs/03-evaluation.md 建立验收点→输入/预期/实际/退出码/Trace/测试文件映射，覆盖全部 FR 与 SC（依赖 T042–T044）。
-- [ ] T046 [US6] 使用显式 real 配置实际运行预算改选与故障改选或停止两条模型路径，将真实输入、输出、消息关联、Trace、配置摘要和保存方案写入 examples/real/budget-replan/、examples/real/tool-failure/；只有实际命中 12→8 和错误观察驱动调整才能完成本任务，模型不可用或路径未命中时在 docs/03-evaluation.md 记录事实且保持本任务未完成，不伪造记录（依赖 T045；需可用模型配置）。
+- [X] T046 [US6] 使用显式 real 配置实际运行预算改选与故障改选或停止两条模型路径，将真实输入、输出、消息关联、Trace、配置摘要和保存方案写入 examples/real/budget-replan/、examples/real/tool-failure/；只有实际命中 12→8 和错误观察驱动调整才能完成本任务，模型不可用或路径未命中时在 docs/03-evaluation.md 记录事实且保持本任务未完成，不伪造记录（依赖 T045；需可用模型配置）。
 - [X] T047 [US6] 在 docs/03-evaluation.md 对照真实与 Mock 结果逐项说明通过、失败和未验证项，人工抽查方案事实/素材引用与假设、预算明细和状态一致；引用实际运行文件而非设计示例，记录模型/协议支持边界及真实模型路径结论（依赖 T045 和 T046 的实际执行或不可用记录；T046 未完成时可先完整披露限制）。
 
 **Checkpoint**: 至少三类实际材料可复现，全部验收点有证据或明确缺口；

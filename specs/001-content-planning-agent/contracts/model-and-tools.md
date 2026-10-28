@@ -1,6 +1,6 @@
 # Model & Tool Contract
 
-**Version**: 1.0.0（已实现；真实端点/模型组合尚未实测）
+**Version**: 1.0.0（已实现；DeepSeek beta + deepseek-flash 两条路径已实测，其他组合未验证）
 **Related**: [数据模型](../data-model.md)、[CLI](cli.md)。
 
 ## 1. 决策提供者
@@ -35,6 +35,10 @@ tool_call_id 与原调用一致，content 为观察 JSON 字符串；下一次�
 
 官方协议依据：[Function calling](https://developers.openai.com/api/docs/guides/function-calling)、
 [Chat Completions](https://developers.openai.com/api/reference/resources/chat/subresources/completions/methods/create)。
+
+### DeepSeek 实测配置
+
+`https://api.deepseek.com/beta/chat/completions` + `deepseek-flash`，`thinking={"type":"disabled"}`。strict 工具 schema 在发送时移除 minLength/maxLength/minItems/maxItems，并在描述中提示限制；本地校验保持完整。协议配置与决策提示版本加入 real 请求指纹，改动后须使用新请求。真实响应 ID/model/usage/created 白名单记录为 model_response；HTTP 错误仅记录安全状态码。依据：[DeepSeek 工具调用](https://api-docs.deepseek.com/guides/tool_calls/)、[Chat Completions](https://api-docs.deepseek.com/api/create-chat-completion/)。实际成功与失败均见 [证据](../../../examples/real/README.md)。
 
 ## 2. 工具输入与前置条件
 

@@ -94,3 +94,38 @@ def test_invalid_single_arguments_remain_associated():
     m=message();m['tool_calls'][0]['function']['arguments']='bad-json'
     clean,cid,name,args=parse_action(m,set())
     assert cid=='call_1' and args is None and name=='search_materials'
+
+
+def test_deepseek_wire_schema_preserves_local_guards():
+    from content_agent.providers import wire_tools,validate_arguments,provider_profile
+    wire=wire_tools('deepseek-beta-nonthinking-v1')
+    assert wire!=TOOLS
+    def walk(node):
+        if isinstance(node,dict):
+            assert not {'minLength','maxLength','minItems','maxItems'} & node.keys()
+            if node.get('type')=='object':
+                assert node['additionalProperties'] is False
+                assert set(node['required'])==set(node['properties'])
+            for v in node.values():walk(v)
+        elif isinstance(node,list):
+            for v in node:walk(v)
+    walk(wire)
+    assert all(t['function']['strict'] for t in wire)
+    args={'candidate_id':'c','estimate_id':'e','material_ids':['m'],'script_draft':'x'*4001,'decision_summary':'生成'}
+    assert not validate_arguments('generate_script',args)
+    assert provider_profile('https://api.deepseek.com/beta/chat/completions')=='deepseek-beta-nonthinking-v1'
+    assert provider_profile('https://api.deepseek.com.evil.test/chat')=='chat-completions-v1'
+
+
+def test_deepseek_nonthinking_payload_and_redacted_http_status():
+    calls=[]
+    class Transport:
+        def open(self,request,timeout):
+            calls.append(json.loads(request.data))
+            raise HTTPError(request.full_url,400,'private vendor body',{},None)
+    provider=RealProvider('https://api.deepseek.com/beta/chat/completions','deepseek-flash','fixture-key',Transport())
+    with pytest.raises(ModelError,match='model_http_400'):
+        provider.decide({},[])
+    assert calls[0]['thinking']=={'type':'disabled'}
+    assert calls[0]['tool_choice']=='required' and calls[0]['parallel_tool_calls'] is False
+    assert '"maxLength":' not in json.dumps(calls[0]['tools'])

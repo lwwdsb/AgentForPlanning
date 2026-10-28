@@ -114,13 +114,14 @@ show 成功读取或导出返回 0，即使原运行未完成；run 的业务退
 
 ## 6. 真实模型验证
 
-通过当前 shell 配置 MODEL_ENDPOINT、MODEL_NAME、MODEL_API_KEY，不把密钥写入命令历史、
-输入或示例；配置要求见 CLI 契约。端点必须支持所选原生工具协议。
+已实测 DeepSeek beta + deepseek-flash。复制 `.env.example` 为本机 `.env`，在本机编辑器填写密钥；评估脚本显式读取三个变量，不执行 shell 内容。主 CLI 仍只读环境变量。以下命令创建未来截止时间和唯一请求，保留全部尝试，不覆盖已有主验收证据（会产生真实模型费用）：
 
 ```bash
-content-agent run --input .state/inputs/budget-replan.json --mode real --request-id real-budget-01 --state .state/real.db --data-dir examples/fixtures/budget-replan --evidence-dir examples/real/budget-replan
-content-agent run --input .state/inputs/tool-failure.json --mode real --request-id real-failure-01 --state .state/real.db --fault generate-once --data-dir examples/fixtures/tool-failure --evidence-dir examples/real/tool-failure
+python scripts/run_real_examples.py --env-file .env --case budget-replan
+python scripts/run_real_examples.py --env-file .env --case tool-failure
 ```
+
+当前两条实际成功路径与前序失败见 [真实验证](../../examples/real/README.md)。其他兼容端点必须另行验证。
 
 核对完整 assistant/tool 消息关联、预算报价和错误确实进入下一轮模型，
 并据此出现改选或停止。预算用例必须实际观察到 12→8 两次报价。
