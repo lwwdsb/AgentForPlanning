@@ -11,12 +11,12 @@
     "--request-id",
     "missing-both",
     "--state",
-    ".state/evaluation-763a4c748fa846d198b79e23ddf97c2f.db",
+    ".state/evaluation-b21016cf6ce449cf8a67a634acd7fe4c.db",
     "--evidence-dir",
     "examples/mock/missing-both"
   ],
-  "started_at": "2026-10-28T05:15:17.316853+00:00",
-  "elapsed_seconds": 0.042179,
+  "started_at": "2026-10-28T06:38:11.568464+00:00",
+  "elapsed_seconds": 0.053687,
   "exit_code": 2,
   "stderr": ""
 }

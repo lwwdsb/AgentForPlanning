@@ -10,6 +10,7 @@ def test_decimal_money():
 import pytest
 from content_agent.domain import project,utc
 from content_agent.tools import ToolExecutor,Rejected
+from content_agent.content import mock_draft
 
 
 def prepare(run_state,data):
@@ -35,17 +36,17 @@ def test_history_spend_and_boundary(run_state,data):
 def test_candidate_identity_script_immutability_and_stale_quote(run_state,data):
     executor,args,q=prepare(run_state,data)
     c=run_state.candidate
-    gen={'candidate_id':c['candidate_id'],'estimate_id':q['estimate_id'],'material_ids':c['material_ids'],'script_draft':'原始脚本'}
+    gen={'candidate_id':c['candidate_id'],'estimate_id':q['estimate_id'],'material_ids':c['material_ids'],'script_draft':{**mock_draft(c,run_state.materials),'copy':'原始脚本'}}
     script=executor.execute(run_state,'generate_script',gen)['result']
     run_state.ledger=[{'amount_minor':800}]
     with pytest.raises(Rejected,match='stale_estimate'):
         executor.execute(run_state,'save_plan',{'candidate_id':c['candidate_id'],'estimate_id':q['estimate_id'],'script_id':script['artifact_id']})
-    assert executor.validate(run_state,'generate_script',{**gen,'script_draft':'不同草稿'})['result']==script
+    assert executor.validate(run_state,'generate_script',{**gen,'script_draft':{**mock_draft(c,run_state.materials),'copy':'不同草稿'}})['result']==script
     q2=executor.execute(run_state,'estimate_cost',args)
     assert len(run_state.candidates)==1 and c['revision']==1 and q2['projected_total_minor']==800
     q3=executor.execute(run_state,'estimate_cost',{**args,'audience':'教师群体'})
     assert len(run_state.candidates)==2 and run_state.candidate['revision']==2
-    assert script['content']['text']=='原始脚本'
+    assert script['content']['delivery']['copy']=='原始脚本'
     assert q3['projected_total_minor']==1600 and q3['feasible'] is False
     assert run_state.spent==800
 
@@ -87,4 +88,4 @@ def test_changed_rules_reject_old_quote(run_state,data):
     c=run_state.candidate
     with pytest.raises(Rejected,match='stale_estimate'):
         changed.validate(run_state,'generate_script',{'candidate_id':c['candidate_id'],'estimate_id':q['estimate_id'],
-                         'material_ids':c['material_ids'],'script_draft':'draft'})
+                         'material_ids':c['material_ids'],'script_draft':mock_draft(c,run_state.materials)})

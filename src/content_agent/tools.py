@@ -2,6 +2,8 @@
 from dataclasses import asdict
 
 from .domain import Artifact, Candidate, Estimate, digest, money, project, quote_context, uid
+from .content import check_delivery, render_delivery
+from .providers import DRAFT_SCHEMA, validate_schema
 
 
 class Rejected(Exception):
@@ -36,6 +38,11 @@ class ToolExecutor:
         if not q['feasible'] or not current['feasible']:
             raise Rejected(','.join(current['violations']) or 'estimate_infeasible')
 
+    def check_draft(self, run, candidate, draft):
+        if not validate_schema(draft,DRAFT_SCHEMA):raise Rejected('invalid_script_structure')
+        error=check_delivery(draft,candidate,run.materials,self.rules['variants'][candidate['variant']])
+        if error:raise Rejected(error)
+
     def validate(self, run, name, args):
         """Pure preflight: rejection/reuse must not execute a business tool."""
         if run.saved: raise Rejected('already_saved_only_finish_allowed')
@@ -53,10 +60,10 @@ class ToolExecutor:
             script=run.scripts.get(c['candidate_id'])
             if name=='generate_script':
                 if sorted(args['material_ids'])!=c['material_ids']: raise Rejected('material_mismatch')
-                if not args['script_draft'].strip(): raise Rejected('empty_script')
                 if script:
                     return {'status':'success','result':script,'artifact_ids':[script['artifact_id']],
                             'candidate_id':c['candidate_id'],'reused':True}
+                self.check_draft(run,c,args['script_draft'])
             elif not script or script['artifact_id']!=args['script_id']: raise Rejected('script_missing')
             self.check_quote(run,c,args['estimate_id'])
         return None
@@ -113,15 +120,16 @@ class ToolExecutor:
         c = self.candidate(run,args['candidate_id'])
         if sorted(args['material_ids']) != c['material_ids']:
             raise Rejected('material_mismatch')
-        draft = args['script_draft'].strip()
-        if not draft: raise Rejected('empty_script')
+        draft = args['script_draft']
         existing = run.scripts.get(c['candidate_id'])
         if existing:
             return {'status':'success','result':existing,'artifact_ids':[existing['artifact_id']],
                     'candidate_id':c['candidate_id'],'reused':True}
         self.check_quote(run,c,args['estimate_id'])
+        self.check_draft(run,c,draft)
         script = asdict(Artifact(uid('script'),run.request.request_id,'script',
-                        {'text':draft, 'goal':c['goal'], 'audience':c['audience'],
+                        {**render_delivery(draft,self.rules['variants'][c['variant']]['delivery']),
+                         'goal':c['goal'], 'audience':c['audience'],
                          'assumptions':c['assumptions'], 'assumptions_are_user_facts':False},
                         c['material_ids'], c['revision']))
         run.scripts[c['candidate_id']] = script

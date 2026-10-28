@@ -11,7 +11,7 @@
     "--request-id",
     "partial-result",
     "--state",
-    ".state/evaluation-763a4c748fa846d198b79e23ddf97c2f.db",
+    ".state/evaluation-b21016cf6ce449cf8a67a634acd7fe4c.db",
     "--data-dir",
     "examples/fixtures/partial-result",
     "--fault",
@@ -19,8 +19,8 @@
     "--evidence-dir",
     "examples/mock/partial-result"
   ],
-  "started_at": "2026-10-28T05:15:17.933198+00:00",
-  "elapsed_seconds": 0.084001,
+  "started_at": "2026-10-28T06:38:12.270584+00:00",
+  "elapsed_seconds": 0.093923,
   "exit_code": 0,
   "stderr": ""
 }

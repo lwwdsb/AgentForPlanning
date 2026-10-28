@@ -131,3 +131,8 @@ Trace 导出为 JSONL，包含 `schema_version`、run/request 标识、mode、ro
 结果包含当前计划、全部步骤/尝试、可复用成果、预算及已花/剩余估算、时间校验、
 保存位置、模式、计数、原因、缺口、remaining_work、原始 Trace 引用与复用标记。
 缺口仅根据已估算或完整枚举的可用形式报告；缺少依据时为 null 并注明未知。
+
+
+## 审查后合同补充
+
+规则 1.1 增加 delivery 的 format/included_deliverables/max_copy_chars/max_scenes/pricing_basis/excludes。脚本产物增加结构化 delivery、pricing_scope、publication_status 和 fact_policy；正文由确定性分区渲染，不把创意建议归入来源事实。步骤 depends_on 由本次引用的素材/报价/脚本 ID 解析实际成功来源，生成后估算包含脚本依赖。real 配置加入提示、工具 schema、实现源码摘要；新请求使用 structured-delivery-v1 执行合同，历史记录仍保留原配置。详情见 [工具契约](contracts/model-and-tools.md)。

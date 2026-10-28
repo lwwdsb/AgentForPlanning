@@ -11,14 +11,14 @@
     "--request-id",
     "budget-replan",
     "--state",
-    ".state/evaluation-763a4c748fa846d198b79e23ddf97c2f.db",
+    ".state/evaluation-b21016cf6ce449cf8a67a634acd7fe4c.db",
     "--data-dir",
     "examples/fixtures/budget-replan",
     "--evidence-dir",
     "examples/mock/budget-replan"
   ],
-  "started_at": "2026-10-28T05:15:17.411908+00:00",
-  "elapsed_seconds": 0.074734,
+  "started_at": "2026-10-28T06:38:11.676121+00:00",
+  "elapsed_seconds": 0.081384,
   "exit_code": 0,
   "stderr": ""
 }

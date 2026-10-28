@@ -1,0 +1,11 @@
+{
+  "started_at": "2026-10-28T06:27:05.123663+00:00",
+  "ended_at": "2026-10-28T06:48:56.054485+00:00",
+  "elapsed_minutes": 21.85,
+  "start_basis": "Filesystem creation time of first new regression test file; metadata only.",
+  "scope": "Coding after initial inspection, red/green tests, targeted independent rechecks, actual model paths, documentation and evidence audit.",
+  "excluded": "Prior independent audit, initial inspection/design before test creation, subsequent Git commit/push and final response.",
+  "tests_passed": 133,
+  "new_regressions": 17,
+  "current_policy": "content-planning-v5"
+}

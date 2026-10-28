@@ -1,0 +1,11 @@
+{
+  "command": [
+    "python",
+    "scripts/run_dependency_examples.py"
+  ],
+  "case": "mixed-sources",
+  "mode": "mock",
+  "verified": "actual referenced producers and post-generation estimate dependencies",
+  "status": "completed",
+  "spent": "8.00"
+}

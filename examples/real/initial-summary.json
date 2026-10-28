@@ -1,0 +1,78 @@
+{
+  "observed_local_date": "2026-10-27",
+  "timezone": "America/Los_Angeles",
+  "scope": "Four actual real-model attempts; two acceptance paths obtained after documented policy refinements. Not a reliability estimate.",
+  "attempts": [
+    {
+      "case": "budget-replan",
+      "request_id": "real-budget-replan-20261028T050939Z-5f14f5",
+      "started_at": "2026-10-28T05:09:39.197866+00:00",
+      "elapsed_seconds": 12.072905333945528,
+      "status": "incomplete",
+      "reason_code": "stopped",
+      "acceptance_path_passed": false,
+      "rounds": 7,
+      "simulation_spent": "8.00",
+      "model": "deepseek-flash",
+      "provider_profile": "deepseek-beta-nonthinking-v1",
+      "decision_policy_version": "unversioned-initial-policy",
+      "response_total_tokens": 58664,
+      "evidence_directory": "attempts/real-budget-replan-20261028T050939Z-5f14f5"
+    },
+    {
+      "case": "budget-replan",
+      "request_id": "real-budget-replan-20261028T051059Z-49a791",
+      "started_at": "2026-10-28T05:10:59.645548+00:00",
+      "elapsed_seconds": 13.01139041595161,
+      "status": "completed",
+      "reason_code": null,
+      "acceptance_path_passed": true,
+      "rounds": 7,
+      "simulation_spent": "8.00",
+      "model": "deepseek-flash",
+      "provider_profile": "deepseek-beta-nonthinking-v1",
+      "decision_policy_version": "content-planning-v2",
+      "response_total_tokens": 63469,
+      "evidence_directory": "attempts/real-budget-replan-20261028T051059Z-49a791"
+    },
+    {
+      "case": "tool-failure",
+      "request_id": "real-tool-failure-20261028T051100Z-d8590f",
+      "started_at": "2026-10-28T05:11:00.904704+00:00",
+      "elapsed_seconds": 12.58140645781532,
+      "status": "completed",
+      "reason_code": null,
+      "acceptance_path_passed": false,
+      "rounds": 7,
+      "simulation_spent": "8.00",
+      "model": "deepseek-flash",
+      "provider_profile": "deepseek-beta-nonthinking-v1",
+      "decision_policy_version": "content-planning-v2",
+      "response_total_tokens": 61826,
+      "evidence_directory": "attempts/real-tool-failure-20261028T051100Z-d8590f"
+    },
+    {
+      "case": "tool-failure",
+      "request_id": "real-tool-failure-20261028T051258Z-3dd5da",
+      "started_at": "2026-10-28T05:12:58.638170+00:00",
+      "elapsed_seconds": 18.429020707961172,
+      "status": "completed",
+      "reason_code": null,
+      "acceptance_path_passed": true,
+      "rounds": 8,
+      "simulation_spent": "3.00",
+      "model": "deepseek-flash",
+      "provider_profile": "deepseek-beta-nonthinking-v1",
+      "decision_policy_version": "content-planning-v3",
+      "response_total_tokens": 87232,
+      "evidence_directory": "attempts/real-tool-failure-20261028T051258Z-3dd5da"
+    }
+  ],
+  "total_model_calls": 29,
+  "response_total_tokens": 271191,
+  "token_note": "Provider usage includes repeated context and cache; this is not an invoice or monetary cost.",
+  "selected_evidence": {
+    "budget-replan": "budget-replan/manifest.json",
+    "tool-failure": "tool-failure/manifest.json"
+  }
+}

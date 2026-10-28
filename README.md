@@ -53,6 +53,7 @@ python scripts/run_examples.py
 | [评估](docs/03-evaluation.md) | 预期/实际、全部 FR/SC 映射、限制 |
 | [AI 使用](docs/04-ai-usage.md) | AI 辅助、用户修改、验证来源 |
 | [复盘](docs/05-retrospective.md) | 实际用时、难点与未完成部分 |
+| [独立审查与修复](docs/07-review-fixes.md) | 两项问题、回归反例、同版真实验收与限制 |
 | [正常方案](examples/mock/normal/artifact.json) | 活动内容、引用、假设、实际依赖与费用明细 |
 | [预算改选 Trace](examples/mock/budget-replan/trace.jsonl) | 12 超限 → 8 可行 → 生成 → 重估 → 保存 |
 | [生成失败 Trace](examples/mock/tool-failure/trace.jsonl) | 原失败保留 → 替代形式完成 |
@@ -113,3 +114,6 @@ python scripts/run_real_examples.py --env-file .env --case tool-failure
 ```
 
 脚本逐次保留实际输入和输出，不会覆盖已有主验收证据。`.env` 不提交 Git，主 CLI 仍不自动加载该文件。
+
+
+当前验证：133 项离线测试通过；同一 content-planning-v5 的真实预算改选和故障改选通过。每个档位只保存一份约定形式的草稿，事实引用、创意和运营建议分区显示；完成状态代表草稿已保存，发布仍需运营审核。[当前真实证据](examples/real/current-validation.json)、[依赖修复复现](scripts/run_dependency_examples.py)。

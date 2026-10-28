@@ -11,14 +11,14 @@
     "--request-id",
     "limit",
     "--state",
-    ".state/evaluation-763a4c748fa846d198b79e23ddf97c2f.db",
+    ".state/evaluation-b21016cf6ce449cf8a67a634acd7fe4c.db",
     "--max-rounds",
     "1",
     "--evidence-dir",
     "examples/mock/limit"
   ],
-  "started_at": "2026-10-28T05:15:18.017931+00:00",
-  "elapsed_seconds": 0.050133,
+  "started_at": "2026-10-28T06:38:12.365262+00:00",
+  "elapsed_seconds": 0.058169,
   "exit_code": 3,
   "stderr": ""
 }

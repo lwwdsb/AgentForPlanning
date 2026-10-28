@@ -1,5 +1,5 @@
 {
-  "version": "1.0",
+  "version": "1.1",
   "currency": "simulated_units",
   "failure_cost_minor": 0,
   "tools": {
@@ -24,19 +24,64 @@
       "available": false,
       "success_cost_minor": 1200,
       "success_duration_seconds": 1200,
-      "failure_duration_seconds": 120
+      "failure_duration_seconds": 120,
+      "delivery": {
+        "format": "video_script",
+        "included_deliverables": [
+          "video_script"
+        ],
+        "max_copy_chars": 0,
+        "max_scenes": 6,
+        "pricing_basis": "one_script_draft",
+        "excludes": [
+          "additional_deliverables",
+          "filming",
+          "graphic_design",
+          "distribution"
+        ]
+      }
     },
     "standard": {
       "available": true,
       "success_cost_minor": 800,
       "success_duration_seconds": 600,
-      "failure_duration_seconds": 60
+      "failure_duration_seconds": 60,
+      "delivery": {
+        "format": "image_text",
+        "included_deliverables": [
+          "image_text"
+        ],
+        "max_copy_chars": 600,
+        "max_scenes": 0,
+        "pricing_basis": "one_script_draft",
+        "excludes": [
+          "additional_deliverables",
+          "filming",
+          "graphic_design",
+          "distribution"
+        ]
+      }
     },
     "lean": {
       "available": true,
       "success_cost_minor": 300,
       "success_duration_seconds": 300,
-      "failure_duration_seconds": 30
+      "failure_duration_seconds": 30,
+      "delivery": {
+        "format": "short_copy",
+        "included_deliverables": [
+          "short_copy"
+        ],
+        "max_copy_chars": 160,
+        "max_scenes": 0,
+        "pricing_basis": "one_script_draft",
+        "excludes": [
+          "additional_deliverables",
+          "filming",
+          "graphic_design",
+          "distribution"
+        ]
+      }
     }
   }
 }

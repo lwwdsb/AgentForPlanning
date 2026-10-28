@@ -18,3 +18,6 @@
 | 真实动态决策 | DeepSeek 两条真实路径已取得：12→8；生成失败后改选 lean，详见评估 |
 
 完整、权威需求见 [spec.md](../specs/001-content-planning-agent/spec.md)，治理规则见 [constitution.md](../.specify/memory/constitution.md)。实现与测试映射见 [评估](03-evaluation.md)，避免维护相互冲突的第二份详细规格。
+
+
+审查后细化：各档位仅交付一份结构化脚本草稿（短视频分镜/图文正文/单段精简文案），报价不包含实际拍摄、设计或投放。引用事实逐字溯源，模型创意与运营规则建议显式待审核；保存完成不等于已获发布确认。实际步骤依赖必须按所用产物的来源连接，详见 [修复验收](07-review-fixes.md)。

@@ -11,12 +11,12 @@
     "--request-id",
     "missing-budget",
     "--state",
-    ".state/evaluation-763a4c748fa846d198b79e23ddf97c2f.db",
+    ".state/evaluation-b21016cf6ce449cf8a67a634acd7fe4c.db",
     "--evidence-dir",
     "examples/mock/missing-budget"
   ],
-  "started_at": "2026-10-28T05:15:17.227213+00:00",
-  "elapsed_seconds": 0.042382,
+  "started_at": "2026-10-28T06:38:11.475203+00:00",
+  "elapsed_seconds": 0.04589,
   "exit_code": 2,
   "stderr": ""
 }

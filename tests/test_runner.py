@@ -1,5 +1,6 @@
 from content_agent.runner import run_request
 from content_agent.providers import MockProvider
+from content_agent.content import mock_draft
 from conftest import SequenceProvider
 
 
@@ -157,7 +158,7 @@ def test_provider_error_preserves_committed_materials(raw,config,data,store,cloc
 
 
 def test_invalid_params_and_unmet_dependencies_are_observations(raw,config,data,store,clock):
-    p=SequenceProvider([('generate_script',{'candidate_id':'none','estimate_id':'none','material_ids':['unknown'],'script_draft':'draft'}),
+    p=SequenceProvider([('generate_script',{'candidate_id':'none','estimate_id':'none','material_ids':['unknown'],'script_draft':{'format':'image_text','title':'标题','source_facts':[{'material_id':'unknown','quote':'原文'}],'copy':'草稿','scenes':[],'operational_suggestions':[]}}),
                         ('search_materials',{'query':123}),('finish',{'outcome':'incomplete','reason_code':'tool_failed','remaining_work':['补足依赖']})])
     result=run_request(raw,'reject',config,data,store,p,clock)
     assert result['status']=='incomplete'
@@ -181,7 +182,7 @@ def test_generation_reused_does_not_execute_or_charge_again(raw,config,data,stor
     class Reuse(MockProvider):
         def decide(self,c,m):
             if c['rounds_used']==4:
-                a={**__import__('json').loads(m[-2]['tool_calls'][0]['function']['arguments']),'script_draft':'另一个草稿不得覆盖'}
+                a={**__import__('json').loads(m[-2]['tool_calls'][0]['function']['arguments']),'script_draft':{**mock_draft(c['candidates'][-1],c['materials']),'copy':'另一个草稿不得覆盖'}}
                 return action('generate_script',a,c['rounds_used'])
             return super().decide(c,m)
     result=run_request(raw,'reuse-script',config,data,store,Reuse(),clock)
@@ -229,13 +230,13 @@ def test_real_adapter_runs_same_loop_with_actual_tool_observations(raw,config,da
             chosen=MockProvider().decide(context,body['messages'][2:])
             function=chosen['tool_calls'][0]['function']
             if function['name']=='generate_script':
-                args=json.loads(function['arguments']);args['script_draft']=draft;function['arguments']=json.dumps(args)
+                args=json.loads(function['arguments']);args['script_draft']['copy']=draft;function['arguments']=json.dumps(args)
             return Response(json.dumps({'choices':[{'finish_reason':'tool_calls','message':chosen}]}).encode())
     provider=RealProvider('https://example.test/chat','fixture-model','fixture-credential',HTTP())
     result=run_request(raw,'native',{**config,'mode':'real'},data,store,provider,clock)
     assert result['status']=='completed' and len(requests)==6
     run,events,artifact=store.snapshot('native')
-    assert artifact['content']['script']['content']['text']==draft
+    assert artifact['content']['script']['content']['delivery']['copy']==draft
     for i,body in enumerate(requests[1:],start=1):
         assistant,tool=body['messages'][-2:]
         assert tool['tool_call_id']==assistant['tool_calls'][0]['id']

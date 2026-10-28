@@ -8,8 +8,9 @@ import sys
 from urllib.parse import urlsplit, urlunsplit
 from uuid import uuid4
 
-from .domain import dumps
-from .providers import MockProvider, RealProvider, provider_profile, DECISION_POLICY_VERSION
+from .domain import dumps, digest
+from .providers import MockProvider, RealProvider, provider_profile, DECISION_POLICY_VERSION, SYSTEM_PROMPT, TOOLS
+from .content import FORMATS
 from .runner import run_request
 from .store import Store, export_evidence
 
@@ -50,6 +51,13 @@ def load_data(path):
             if rule.get(key) is not None and (type(rule[key]) is not int or rule[key]<0): raise ValueError('invalid rule')
         if type(rule.get('failure_duration_seconds')) is not int or rule['failure_duration_seconds']<0:
             raise ValueError('invalid failure duration')
+        scope=rule.get('delivery',{})
+        expected=FORMATS[variant]
+        if (scope.get('format')!=expected or scope.get('included_deliverables')!=[expected]
+                or scope.get('pricing_basis')!='one_script_draft'
+                or scope.get('max_copy_chars')!=({'premium':0,'standard':600,'lean':160}[variant])
+                or scope.get('max_scenes')!=(6 if variant=='premium' else 0)):
+            raise ValueError('invalid delivery contract')
     return data
 
 
@@ -70,7 +78,7 @@ def parser():
 
 
 def config_for(args):
-    config={'mode':args.mode,'max_rounds':args.max_rounds,'fault':args.fault}
+    config={'mode':args.mode,'max_rounds':args.max_rounds,'fault':args.fault,'execution_contract':'structured-delivery-v1'}
     if args.mode=='mock': config['mock_strategy']='observation-v1'
     else:
         # Key is only read when a new, valid real request actually needs a provider.
@@ -83,6 +91,9 @@ def config_for(args):
             safe_endpoint=urlunsplit((parts.scheme,authority,parts.path,'',''))
         except ValueError:safe_endpoint='<invalid_endpoint>'
         config.update(model=os.environ.get('MODEL_NAME',''),endpoint=safe_endpoint,provider_profile=provider_profile(safe_endpoint),decision_policy_version=DECISION_POLICY_VERSION)
+        config.update(prompt_digest=digest(SYSTEM_PROMPT),tool_schema_digest=digest(TOOLS),
+                      implementation_digest=digest({p.name:p.read_text(encoding='utf-8')
+                          for p in sorted(Path(__file__).parent.glob('*.py'))}))
     return config
 
 

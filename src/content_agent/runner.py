@@ -74,16 +74,26 @@ def context_for(run, data):
             'effective_now':run.effective_now,'rounds_used':run.rounds_used,'max_rounds':run.max_rounds}
 
 
-def dependencies(run, name, revision):
-    kinds = {'search_materials':[], 'estimate_cost':['search_materials'],
-             'generate_script':['search_materials','estimate_cost'],
-             'save_plan':['generate_script','estimate_cost']}[name]
-    deps=[]
-    for kind in kinds:
-        candidates=[s for s in run.steps if s['kind']==kind and s['status']=='succeeded'
-                    and (kind=='search_materials' or revision is None or s['candidate_revision']==revision)]
-        if candidates: deps.append(candidates[-1]['step_id'])
-    return deps
+def dependencies(run, name, args, outcome=None):
+    """Resolve referenced IDs to their actual successful producers, not tool recency."""
+    refs=[]
+    if name in ('estimate_cost','generate_script'):
+        refs += [('search_materials', i) for i in args['material_ids']]
+    if name in ('generate_script','save_plan'):
+        refs.append(('estimate_cost',args['estimate_id']))
+    if name=='save_plan': refs.append(('generate_script',args['script_id']))
+    if name=='estimate_cost' and outcome:
+        refs += [('generate_script',i) for i in outcome['result']['required_artifacts']
+                 if i not in args['material_ids']]
+    deps=set()
+    for kind,reference in refs:
+        matches=[s for s in run.steps if s['kind']==kind and s['status']=='succeeded'
+                 and (reference in s['artifact_ids'] or (kind=='estimate_cost' and any(
+                     a['step_id']==s['step_id'] and a['status']=='succeeded'
+                     and a['result'].get('estimate_id')==reference for a in run.attempts)))]
+        if not matches: raise Rejected('dependency_source_missing')
+        deps.add(matches[-1]['step_id'])
+    return [s['step_id'] for s in run.steps if s['step_id'] in deps]
 
 
 def run_request(raw, request_id, config, data, store, provider=None, clock=None, provider_factory=None):
@@ -198,13 +208,14 @@ def _execute(run,name,args,executor,store,clock,start,persist):
     # Pure guards run before recording a business attempt.
     try:
         outcome=executor.validate(run,name,args)
+        refs=dependencies(run,name,args) if outcome is None else []
     except Rejected as exc:
         return {'status':'rejected','quality':'none','error':str(exc),
                 'violations':[v for v in ('budget_exceeded','deadline_exceeded') if v in str(exc)]}
     if outcome is not None and outcome.get('reused'):
         return outcome
     revision=run.candidate['revision'] if run.candidate and name!='search_materials' else None
-    step=asdict(Step(uid('step'),name,revision,dependencies(run,name,revision),status='running'))
+    step=asdict(Step(uid('step'),name,revision,refs,status='running'))
     attempt=asdict(Attempt(uid('attempt'),step['step_id'],run.rounds_used,name,args))
     run.steps.append(step); run.attempts.append(attempt)
     persist([{'event_type':'tool_started','payload':{'attempt_id':attempt['attempt_id'],'step_id':step['step_id'],
@@ -218,6 +229,7 @@ def _execute(run,name,args,executor,store,clock,start,persist):
         if name=='estimate_cost':
             step['candidate_revision']=run.candidate['revision']
             step['reusable']=True
+            step['depends_on']=dependencies(run,name,args,outcome)
         failure=_fault(run,name)
         if failure:
             partial=outcome['result']['content']['text'][:40] if failure=='partial_result' else None

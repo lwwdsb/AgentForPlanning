@@ -10,6 +10,9 @@ import subprocess
 import sys
 import time
 from uuid import uuid4
+from content_agent.domain import digest
+from content_agent.providers import SYSTEM_PROMPT, TOOLS, DECISION_POLICY_VERSION
+from content_agent.content import check_delivery
 
 ROOT=Path(__file__).resolve().parents[1]
 
@@ -27,6 +30,14 @@ def configuration(path):
 
 
 def check_path(case,result):
+    if result.get('status')=='completed':
+        candidate=result['plan']['current_candidate']
+        script=result['reusable_artifacts']['scripts'][candidate['candidate_id']]['content']
+        rules=json.loads((ROOT/'examples/fixtures'/case/'rules.json').read_text())
+        materials={m['material_id']:m for m in result['reusable_artifacts']['materials']}
+        if (script.get('publication_status')!='requires_operator_review'
+                or check_delivery(script['delivery'],candidate,materials,rules['variants'][candidate['variant']])):
+            return False
     observations=result['tool_results']
     if case=='budget-replan':
         quotes=[o for o in observations if o['action']=='estimate_cost' and o['status']=='success']
@@ -37,8 +48,10 @@ def check_path(case,result):
     failures=[a for a in result['attempts'] if a['action']=='generate_script' and a['status']=='failed']
     if not failures:return False
     first=failures[0]
-    candidates=result['plan']['candidates'];initial=first['arguments']['candidate_id']
-    later=any(c['candidate_id']!=initial for c in candidates)
+    initial=first['arguments']['candidate_id']
+    later=any(o['action']=='estimate_cost' and o['status']=='success'
+              and o['rounds_used']>first['round'] and o['candidate_id']!=initial
+              for o in observations)
     stopped=result['status']=='incomplete' and any(o['action']=='finish' and o['status']=='success'
                                                 and o['rounds_used']>first['round'] for o in observations)
     return bool(result['reusable_artifacts']['materials']) and ((later and result['status']=='completed') or stopped)
@@ -70,13 +83,21 @@ def main():
     try:result=json.loads(proc.stdout)
     except ValueError:result={'status':'invalid_cli_output','tool_results':[],'attempts':[]}
     passed=check_path(case,result) if proc.returncode in (0,3) else False
+    sources={p.name:p.read_text(encoding='utf-8') for p in sorted((ROOT/'src/content_agent').glob('*.py'))}
+    provenance={'decision_policy_version':DECISION_POLICY_VERSION,'system_prompt':SYSTEM_PROMPT,
+                'tool_schema':TOOLS,'source_files':sources,'prompt_digest':digest(SYSTEM_PROMPT),
+                'tool_schema_digest':digest(TOOLS),'implementation_digest':digest(sources),
+                'data':{n:json.loads((ROOT/'examples/fixtures'/case/(n+'.json')).read_text())
+                        for n in ('materials','rules')}}
     execution={'case':case,'request_id':request_id,'started_at':started.isoformat(),'elapsed_seconds':elapsed,
                'exit_code':proc.returncode,'acceptance_path_passed':passed,
-               'command':['python',*command[1:]],'stderr':proc.stderr,'provider_profile':'deepseek-beta-nonthinking-v1'}
+               'command':['python',*command[1:]],'stderr':proc.stderr,'provider_profile':'deepseek-beta-nonthinking-v1',
+               'provenance_digest':digest(provenance),'provenance_file':'provenance.json'}
     dest.mkdir(parents=True,exist_ok=True)
+    (dest/'provenance.json').write_text(json.dumps(provenance,ensure_ascii=False,indent=2)+'\n')
     (dest/'execution.json').write_text(json.dumps(execution,ensure_ascii=False,indent=2)+'\n')
     if passed:
-        canonical=Path('examples/real')/case
+        canonical=Path('examples/real')/DECISION_POLICY_VERSION/case
         if not canonical.exists():shutil.copytree(dest,canonical)
     print(json.dumps({'case':case,'status':result['status'],'reason':result.get('reason_code'),
                       'path_passed':passed,'rounds':result.get('execution',{}).get('rounds_used'),

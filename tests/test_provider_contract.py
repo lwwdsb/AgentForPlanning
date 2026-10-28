@@ -111,7 +111,7 @@ def test_deepseek_wire_schema_preserves_local_guards():
             for v in node:walk(v)
     walk(wire)
     assert all(t['function']['strict'] for t in wire)
-    args={'candidate_id':'c','estimate_id':'e','material_ids':['m'],'script_draft':'x'*4001,'decision_summary':'生成'}
+    args={'candidate_id':'c','estimate_id':'e','material_ids':['m'],'script_draft':{'format':'image_text','title':'标题','source_facts':[{'material_id':'m','quote':'原文'}],'copy':'x'*601,'scenes':[],'operational_suggestions':[]},'decision_summary':'生成'}
     assert not validate_arguments('generate_script',args)
     assert provider_profile('https://api.deepseek.com/beta/chat/completions')=='deepseek-beta-nonthinking-v1'
     assert provider_profile('https://api.deepseek.com.evil.test/chat')=='chat-completions-v1'

@@ -1,0 +1,32 @@
+{
+  "case": "budget-replan",
+  "request_id": "real-budget-replan-20261028T063903Z-ce8925",
+  "started_at": "2026-10-28T06:39:03.034428+00:00",
+  "elapsed_seconds": 1.6908392498735338,
+  "exit_code": 3,
+  "acceptance_path_passed": false,
+  "command": [
+    "python",
+    "-m",
+    "content_agent",
+    "run",
+    "--input",
+    ".state/real-inputs/real-budget-replan-20261028T063903Z-ce8925.json",
+    "--mode",
+    "real",
+    "--request-id",
+    "real-budget-replan-20261028T063903Z-ce8925",
+    "--state",
+    ".state/real-evaluation.db",
+    "--data-dir",
+    "examples/fixtures/budget-replan",
+    "--max-rounds",
+    "12",
+    "--evidence-dir",
+    "examples/real/attempts/real-budget-replan-20261028T063903Z-ce8925"
+  ],
+  "stderr": "",
+  "provider_profile": "deepseek-beta-nonthinking-v1",
+  "provenance_digest": "516b01c851258e7ebb075a6142cc5642be7b129fe68c7582a3c2f9458fedf1dd",
+  "provenance_file": "provenance.json"
+}

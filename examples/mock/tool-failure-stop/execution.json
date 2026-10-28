@@ -11,7 +11,7 @@
     "--request-id",
     "tool-failure-stop",
     "--state",
-    ".state/evaluation-763a4c748fa846d198b79e23ddf97c2f.db",
+    ".state/evaluation-b21016cf6ce449cf8a67a634acd7fe4c.db",
     "--data-dir",
     "examples/fixtures/tool-failure",
     "--fault",
@@ -19,8 +19,8 @@
     "--evidence-dir",
     "examples/mock/tool-failure-stop"
   ],
-  "started_at": "2026-10-28T05:15:17.722496+00:00",
-  "elapsed_seconds": 0.067017,
+  "started_at": "2026-10-28T06:38:12.021006+00:00",
+  "elapsed_seconds": 0.071225,
   "exit_code": 3,
   "stderr": ""
 }

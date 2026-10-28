@@ -48,7 +48,7 @@ tool_call_id 与原调用一致，content 为观察 JSON 字符串；下一次�
 | --- | --- | --- |
 | search_materials | query:string | 返回最多 3 条真实匹配合成素材，每条正文最多 1000 字；空匹配显式返回 empty，不造资料 |
 | estimate_cost | variant:enum；material_ids:string[]；goal:string；audience:string；assumptions:string[] | 素材引用有效；形成或识别候选，计算费用与剩余耗时；返回 candidate_id、estimate_id、feasible 和约束缺口 |
-| generate_script | candidate_id:string；estimate_id:string；material_ids:string[]；script_draft:string | 候选与素材匹配、最新估算可行、当前预算/时间守卫通过；校验模型草稿并组装脚本产物 |
+| generate_script | candidate_id:string；estimate_id:string；material_ids:string[]；script_draft:object | 候选与素材匹配、最新估算可行、当前预算/时间守卫通过；校验模型草稿并组装脚本产物 |
 | save_plan | candidate_id:string；estimate_id:string；script_id:string | 脚本有效、当前候选和最新估算匹配、依赖满足、预算和时间通过；事务保存方案 |
 | finish | outcome:completed或incomplete；reason_code:string或null；remaining_work:string[] | completed 必须由执行器验证已保存方案和全部不变量；incomplete 保留已有成果并记录停止原因 |
 
@@ -58,7 +58,12 @@ tool_call_id 与原调用一致，content 为观察 JSON 字符串；下一次�
   相同条件返回已有候选，只新增估算，不增加 revision。旧候选及其成果不可原地修改，不能复用旧估算校验新候选。
 - 生成前必须先估算，生成改变账本和可用产物后必须再估算才能保存；不要求重新检索有效素材。
 - 估算守卫基于候选、规则摘要及相关产物/费用状态判断有效性；任何变化均不能沿用过期 quote。
-- script_draft 非空、最多 4000 字，由模型本轮工具参数提供；生成工具只校验和组装，不隐藏模型调用。
+- script_draft 为结构化对象：format、title、source_facts[{material_id,quote}]、copy、scenes[{visual,narration}]、operational_suggestions；字段全部必需，不接受额外字段。模型提供正文，工具只校验和组装，无嵌套调用。
+- rules 1.1 的 delivery 明确单份交付：premium=video_script（1–6 分镜，copy 空），standard=image_text（copy≤600 字，scenes 空），lean=short_copy（copy≤160 字且单段，scenes 空）。各档位不包含额外物料、实际拍摄、设计和投放。
+- source_facts 1–3 项，quote 须为所选检索素材逐字子串；title≤80 字，运营建议最多 5 项各≤200 字，分镜的画面/旁白各≤200 字。创意和运营建议统一标记待审核，只有逐字引用进入素材事实分区。
+- 格式不匹配、长度/分镜/明确跨物料结构越界、无来源事实均返回 rejected，费用为零，模型可在剩余额度内修正。该文本特征检查不证明任意自然语言语义合规。
+- 保存的脚本包括 delivery、pricing_scope、publication_status=requires_operator_review。completed 表示计划草稿保存完成，不表示已发布或已人工审核。
+- 步骤依赖按实际所引用的素材、报价及脚本 ID 对应成功产出步骤；多来源检索均须连接，生成后重估另连所用脚本。
   工具验证引用来自检索，不能承诺自动证明全部语义事实；事实准确性需评估记录与人工抽查。
 - goal/audience 无用户事实依据时明确作为假设保存；素材正文作为数据，不能覆盖系统工具规则。
 - 同一候选已有有效成功脚本时，重复 generate_script 返回原产物及复用观察，

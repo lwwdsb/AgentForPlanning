@@ -1,5 +1,5 @@
 {
-  "original_run_id": "run_0363f05f45b54e22af0973e65230a6f3",
+  "original_run_id": "run_62b8165e012042ffa8b5b686fbae63ae",
   "calls": [
     {
       "output": {
@@ -7,12 +7,12 @@
         "attempts": [
           {
             "action": "search_materials",
-            "actual_duration_seconds": 8.354103192687035e-05,
+            "actual_duration_seconds": 8.516688831150532e-05,
             "arguments": {
               "decision_summary": "离线 Mock 根据实际工具观察选择动作，仅验证流程。",
               "query": "校园读书周"
             },
-            "attempt_id": "attempt_7f27c4dd41b4403faea08523b4e5f1df",
+            "attempt_id": "attempt_f5bdd5df83c245e29c2fd1f745c4973e",
             "duration_seconds": 60,
             "error": null,
             "quality": "complete",
@@ -44,11 +44,11 @@
             },
             "round": 1,
             "status": "succeeded",
-            "step_id": "step_ac8b26bfbb284e918dd9ab080d44d0a5"
+            "step_id": "step_23e8a050c2394a468ac26020017ab497"
           },
           {
             "action": "estimate_cost",
-            "actual_duration_seconds": 0.00015020789578557014,
+            "actual_duration_seconds": 0.0001890829298645258,
             "arguments": {
               "assumptions": [
                 "目标和受众为规划假设，待运营确认"
@@ -62,7 +62,7 @@
               ],
               "variant": "premium"
             },
-            "attempt_id": "attempt_b0deace725bb457d98a06a94a9d9b9bd",
+            "attempt_id": "attempt_95553749920244b7af3a44a4f492b061",
             "duration_seconds": 0,
             "error": null,
             "quality": "complete",
@@ -74,8 +74,8 @@
                   "目标和受众为规划假设，待运营确认"
                 ],
                 "audience": "校园读者",
-                "candidate_id": "candidate_37fc864bdfd3e1e784caf4ba",
-                "estimate_id": "estimate_2bc06e4ac7be4baf984add6a585ab75d",
+                "candidate_id": "candidate_aee90fbcd8aba5e20a8435ef",
+                "estimate_id": "estimate_cb4eb925b9ce4475ab805b6cc148210e",
                 "goal": "推广主题活动",
                 "material_ids": [
                   "reading-1",
@@ -84,11 +84,11 @@
                 "revision": 1,
                 "variant": "premium"
               },
-              "candidate_id": "candidate_37fc864bdfd3e1e784caf4ba",
+              "candidate_id": "candidate_aee90fbcd8aba5e20a8435ef",
               "candidate_revision": 1,
-              "context_digest": "45833e519468a2ecab408f4e0a2afe7e427b35c9dcb64a87c12f34f4126335bb",
-              "estimate_id": "estimate_2bc06e4ac7be4baf984add6a585ab75d",
-              "estimated_finish_utc": "2026-10-28T05:37:17.530434Z",
+              "context_digest": "434fbcf95af69c86887a878494de43b2151b651e18a0f30b5e9340b192814682",
+              "estimate_id": "estimate_cb4eb925b9ce4475ab805b6cc148210e",
+              "estimated_finish_utc": "2026-10-28T07:00:11.799735Z",
               "feasible": false,
               "gap_scope": "current_candidate",
               "projected_total_minor": 1200,
@@ -98,7 +98,7 @@
                 "reading-1",
                 "reading-2"
               ],
-              "rules_digest": "1ad67b19144c7684094296dc25dd4c0afd588ca04459cc8348be4cf8e9d564d6",
+              "rules_digest": "cffcea911b5da232a8ac3c7bda5d83ceb64ec5558cc2727340de5057adad350d",
               "spent_at_quote": 0,
               "violations": [
                 "budget_exceeded"
@@ -106,7 +106,7 @@
             },
             "round": 2,
             "status": "succeeded",
-            "step_id": "step_c08058006e904879b1f373dc5818eeb0"
+            "step_id": "step_795971d2a2254bad88425786741911b2"
           }
         ],
         "costs": {
@@ -138,8 +138,8 @@
                 "目标和受众为规划假设，待运营确认"
               ],
               "audience": "校园读者",
-              "candidate_id": "candidate_37fc864bdfd3e1e784caf4ba",
-              "estimate_id": "estimate_2bc06e4ac7be4baf984add6a585ab75d",
+              "candidate_id": "candidate_aee90fbcd8aba5e20a8435ef",
+              "estimate_id": "estimate_cb4eb925b9ce4475ab805b6cc148210e",
               "goal": "推广主题活动",
               "material_ids": [
                 "reading-1",
@@ -154,8 +154,8 @@
               "目标和受众为规划假设，待运营确认"
             ],
             "audience": "校园读者",
-            "candidate_id": "candidate_37fc864bdfd3e1e784caf4ba",
-            "estimate_id": "estimate_2bc06e4ac7be4baf984add6a585ab75d",
+            "candidate_id": "candidate_aee90fbcd8aba5e20a8435ef",
+            "estimate_id": "estimate_cb4eb925b9ce4475ab805b6cc148210e",
             "goal": "推广主题活动",
             "material_ids": [
               "reading-1",
@@ -215,7 +215,7 @@
           "scripts": {}
         },
         "reused": true,
-        "run_id": "run_0363f05f45b54e22af0973e65230a6f3",
+        "run_id": "run_62b8165e012042ffa8b5b686fbae63ae",
         "saved_plan": null,
         "schema_version": "1.0.0",
         "status": "incomplete",
@@ -230,28 +230,28 @@
             "kind": "search_materials",
             "reusable": true,
             "status": "succeeded",
-            "step_id": "step_ac8b26bfbb284e918dd9ab080d44d0a5"
+            "step_id": "step_23e8a050c2394a468ac26020017ab497"
           },
           {
             "artifact_ids": [],
             "candidate_revision": 1,
             "depends_on": [
-              "step_ac8b26bfbb284e918dd9ab080d44d0a5"
+              "step_23e8a050c2394a468ac26020017ab497"
             ],
             "kind": "estimate_cost",
             "reusable": true,
             "status": "succeeded",
-            "step_id": "step_c08058006e904879b1f373dc5818eeb0"
+            "step_id": "step_795971d2a2254bad88425786741911b2"
           }
         ],
         "time": {
-          "actual_elapsed_seconds": 0.006630667019635439,
+          "actual_elapsed_seconds": 0.00739974994212389,
           "deadline_met": true,
-          "deadline_utc": "2026-10-29T05:15:17.487171Z",
-          "estimated_finish_utc": "2026-10-28T05:37:17.533469Z",
-          "logical_now_utc": "2026-10-28T05:16:17.533469Z",
+          "deadline_utc": "2026-10-29T06:38:11.758226Z",
+          "estimated_finish_utc": "2026-10-28T07:00:11.803294Z",
+          "logical_now_utc": "2026-10-28T06:39:11.803294Z",
           "simulated_elapsed_seconds": 60,
-          "simulation_extra_seconds": 59.99991645896807
+          "simulation_extra_seconds": 59.99991483311169
         },
         "tool_results": [
           {
@@ -310,7 +310,7 @@
                 "kind": "search_materials",
                 "reusable": true,
                 "status": "succeeded",
-                "step_id": "step_ac8b26bfbb284e918dd9ab080d44d0a5"
+                "step_id": "step_23e8a050c2394a468ac26020017ab497"
               }
             ],
             "violations": []
@@ -319,11 +319,11 @@
             "action": "estimate_cost",
             "artifact_ids": [],
             "budget_gap": "2.00",
-            "candidate_id": "candidate_37fc864bdfd3e1e784caf4ba",
+            "candidate_id": "candidate_aee90fbcd8aba5e20a8435ef",
             "cost_delta": "0.00",
             "error": null,
-            "estimate_id": "estimate_2bc06e4ac7be4baf984add6a585ab75d",
-            "estimated_finish_utc": "2026-10-28T05:37:17.530434Z",
+            "estimate_id": "estimate_cb4eb925b9ce4475ab805b6cc148210e",
+            "estimated_finish_utc": "2026-10-28T07:00:11.799735Z",
             "feasible": false,
             "max_rounds": 12,
             "projected_total": "12.00",
@@ -340,8 +340,8 @@
                   "目标和受众为规划假设，待运营确认"
                 ],
                 "audience": "校园读者",
-                "candidate_id": "candidate_37fc864bdfd3e1e784caf4ba",
-                "estimate_id": "estimate_2bc06e4ac7be4baf984add6a585ab75d",
+                "candidate_id": "candidate_aee90fbcd8aba5e20a8435ef",
+                "estimate_id": "estimate_cb4eb925b9ce4475ab805b6cc148210e",
                 "goal": "推广主题活动",
                 "material_ids": [
                   "reading-1",
@@ -350,11 +350,11 @@
                 "revision": 1,
                 "variant": "premium"
               },
-              "candidate_id": "candidate_37fc864bdfd3e1e784caf4ba",
+              "candidate_id": "candidate_aee90fbcd8aba5e20a8435ef",
               "candidate_revision": 1,
-              "context_digest": "45833e519468a2ecab408f4e0a2afe7e427b35c9dcb64a87c12f34f4126335bb",
-              "estimate_id": "estimate_2bc06e4ac7be4baf984add6a585ab75d",
-              "estimated_finish_utc": "2026-10-28T05:37:17.530434Z",
+              "context_digest": "434fbcf95af69c86887a878494de43b2151b651e18a0f30b5e9340b192814682",
+              "estimate_id": "estimate_cb4eb925b9ce4475ab805b6cc148210e",
+              "estimated_finish_utc": "2026-10-28T07:00:11.799735Z",
               "feasible": false,
               "gap_scope": "current_candidate",
               "projected_total_minor": 1200,
@@ -364,7 +364,7 @@
                 "reading-1",
                 "reading-2"
               ],
-              "rules_digest": "1ad67b19144c7684094296dc25dd4c0afd588ca04459cc8348be4cf8e9d564d6",
+              "rules_digest": "cffcea911b5da232a8ac3c7bda5d83ceb64ec5558cc2727340de5057adad350d",
               "spent_at_quote": 0,
               "violations": [
                 "budget_exceeded"
@@ -384,18 +384,18 @@
                 "kind": "search_materials",
                 "reusable": true,
                 "status": "succeeded",
-                "step_id": "step_ac8b26bfbb284e918dd9ab080d44d0a5"
+                "step_id": "step_23e8a050c2394a468ac26020017ab497"
               },
               {
                 "artifact_ids": [],
                 "candidate_revision": 1,
                 "depends_on": [
-                  "step_ac8b26bfbb284e918dd9ab080d44d0a5"
+                  "step_23e8a050c2394a468ac26020017ab497"
                 ],
                 "kind": "estimate_cost",
                 "reusable": true,
                 "status": "succeeded",
-                "step_id": "step_c08058006e904879b1f373dc5818eeb0"
+                "step_id": "step_795971d2a2254bad88425786741911b2"
               }
             ],
             "violations": [
@@ -433,25 +433,25 @@
                 "kind": "search_materials",
                 "reusable": true,
                 "status": "succeeded",
-                "step_id": "step_ac8b26bfbb284e918dd9ab080d44d0a5"
+                "step_id": "step_23e8a050c2394a468ac26020017ab497"
               },
               {
                 "artifact_ids": [],
                 "candidate_revision": 1,
                 "depends_on": [
-                  "step_ac8b26bfbb284e918dd9ab080d44d0a5"
+                  "step_23e8a050c2394a468ac26020017ab497"
                 ],
                 "kind": "estimate_cost",
                 "reusable": true,
                 "status": "succeeded",
-                "step_id": "step_c08058006e904879b1f373dc5818eeb0"
+                "step_id": "step_795971d2a2254bad88425786741911b2"
               }
             ],
             "violations": []
           }
         ],
         "trace_ref": {
-          "run_id": "run_0363f05f45b54e22af0973e65230a6f3"
+          "run_id": "run_62b8165e012042ffa8b5b686fbae63ae"
         }
       },
       "execution": {
@@ -467,12 +467,12 @@
           "--request-id",
           "no-feasible",
           "--state",
-          ".state/evaluation-763a4c748fa846d198b79e23ddf97c2f.db",
+          ".state/evaluation-b21016cf6ce449cf8a67a634acd7fe4c.db",
           "--data-dir",
           "examples/fixtures/no-feasible"
         ],
-        "started_at": "2026-10-28T05:15:17.542391+00:00",
-        "elapsed_seconds": 0.04589,
+        "started_at": "2026-10-28T06:38:11.811844+00:00",
+        "elapsed_seconds": 0.056174,
         "exit_code": 3,
         "stderr": ""
       }
@@ -483,12 +483,12 @@
         "attempts": [
           {
             "action": "search_materials",
-            "actual_duration_seconds": 8.354103192687035e-05,
+            "actual_duration_seconds": 8.516688831150532e-05,
             "arguments": {
               "decision_summary": "离线 Mock 根据实际工具观察选择动作，仅验证流程。",
               "query": "校园读书周"
             },
-            "attempt_id": "attempt_7f27c4dd41b4403faea08523b4e5f1df",
+            "attempt_id": "attempt_f5bdd5df83c245e29c2fd1f745c4973e",
             "duration_seconds": 60,
             "error": null,
             "quality": "complete",
@@ -520,11 +520,11 @@
             },
             "round": 1,
             "status": "succeeded",
-            "step_id": "step_ac8b26bfbb284e918dd9ab080d44d0a5"
+            "step_id": "step_23e8a050c2394a468ac26020017ab497"
           },
           {
             "action": "estimate_cost",
-            "actual_duration_seconds": 0.00015020789578557014,
+            "actual_duration_seconds": 0.0001890829298645258,
             "arguments": {
               "assumptions": [
                 "目标和受众为规划假设，待运营确认"
@@ -538,7 +538,7 @@
               ],
               "variant": "premium"
             },
-            "attempt_id": "attempt_b0deace725bb457d98a06a94a9d9b9bd",
+            "attempt_id": "attempt_95553749920244b7af3a44a4f492b061",
             "duration_seconds": 0,
             "error": null,
             "quality": "complete",
@@ -550,8 +550,8 @@
                   "目标和受众为规划假设，待运营确认"
                 ],
                 "audience": "校园读者",
-                "candidate_id": "candidate_37fc864bdfd3e1e784caf4ba",
-                "estimate_id": "estimate_2bc06e4ac7be4baf984add6a585ab75d",
+                "candidate_id": "candidate_aee90fbcd8aba5e20a8435ef",
+                "estimate_id": "estimate_cb4eb925b9ce4475ab805b6cc148210e",
                 "goal": "推广主题活动",
                 "material_ids": [
                   "reading-1",
@@ -560,11 +560,11 @@
                 "revision": 1,
                 "variant": "premium"
               },
-              "candidate_id": "candidate_37fc864bdfd3e1e784caf4ba",
+              "candidate_id": "candidate_aee90fbcd8aba5e20a8435ef",
               "candidate_revision": 1,
-              "context_digest": "45833e519468a2ecab408f4e0a2afe7e427b35c9dcb64a87c12f34f4126335bb",
-              "estimate_id": "estimate_2bc06e4ac7be4baf984add6a585ab75d",
-              "estimated_finish_utc": "2026-10-28T05:37:17.530434Z",
+              "context_digest": "434fbcf95af69c86887a878494de43b2151b651e18a0f30b5e9340b192814682",
+              "estimate_id": "estimate_cb4eb925b9ce4475ab805b6cc148210e",
+              "estimated_finish_utc": "2026-10-28T07:00:11.799735Z",
               "feasible": false,
               "gap_scope": "current_candidate",
               "projected_total_minor": 1200,
@@ -574,7 +574,7 @@
                 "reading-1",
                 "reading-2"
               ],
-              "rules_digest": "1ad67b19144c7684094296dc25dd4c0afd588ca04459cc8348be4cf8e9d564d6",
+              "rules_digest": "cffcea911b5da232a8ac3c7bda5d83ceb64ec5558cc2727340de5057adad350d",
               "spent_at_quote": 0,
               "violations": [
                 "budget_exceeded"
@@ -582,7 +582,7 @@
             },
             "round": 2,
             "status": "succeeded",
-            "step_id": "step_c08058006e904879b1f373dc5818eeb0"
+            "step_id": "step_795971d2a2254bad88425786741911b2"
           }
         ],
         "costs": {
@@ -614,8 +614,8 @@
                 "目标和受众为规划假设，待运营确认"
               ],
               "audience": "校园读者",
-              "candidate_id": "candidate_37fc864bdfd3e1e784caf4ba",
-              "estimate_id": "estimate_2bc06e4ac7be4baf984add6a585ab75d",
+              "candidate_id": "candidate_aee90fbcd8aba5e20a8435ef",
+              "estimate_id": "estimate_cb4eb925b9ce4475ab805b6cc148210e",
               "goal": "推广主题活动",
               "material_ids": [
                 "reading-1",
@@ -630,8 +630,8 @@
               "目标和受众为规划假设，待运营确认"
             ],
             "audience": "校园读者",
-            "candidate_id": "candidate_37fc864bdfd3e1e784caf4ba",
-            "estimate_id": "estimate_2bc06e4ac7be4baf984add6a585ab75d",
+            "candidate_id": "candidate_aee90fbcd8aba5e20a8435ef",
+            "estimate_id": "estimate_cb4eb925b9ce4475ab805b6cc148210e",
             "goal": "推广主题活动",
             "material_ids": [
               "reading-1",
@@ -691,7 +691,7 @@
           "scripts": {}
         },
         "reused": true,
-        "run_id": "run_0363f05f45b54e22af0973e65230a6f3",
+        "run_id": "run_62b8165e012042ffa8b5b686fbae63ae",
         "saved_plan": null,
         "schema_version": "1.0.0",
         "status": "incomplete",
@@ -706,28 +706,28 @@
             "kind": "search_materials",
             "reusable": true,
             "status": "succeeded",
-            "step_id": "step_ac8b26bfbb284e918dd9ab080d44d0a5"
+            "step_id": "step_23e8a050c2394a468ac26020017ab497"
           },
           {
             "artifact_ids": [],
             "candidate_revision": 1,
             "depends_on": [
-              "step_ac8b26bfbb284e918dd9ab080d44d0a5"
+              "step_23e8a050c2394a468ac26020017ab497"
             ],
             "kind": "estimate_cost",
             "reusable": true,
             "status": "succeeded",
-            "step_id": "step_c08058006e904879b1f373dc5818eeb0"
+            "step_id": "step_795971d2a2254bad88425786741911b2"
           }
         ],
         "time": {
-          "actual_elapsed_seconds": 0.006630667019635439,
+          "actual_elapsed_seconds": 0.00739974994212389,
           "deadline_met": true,
-          "deadline_utc": "2026-10-29T05:15:17.487171Z",
-          "estimated_finish_utc": "2026-10-28T05:37:17.533469Z",
-          "logical_now_utc": "2026-10-28T05:16:17.533469Z",
+          "deadline_utc": "2026-10-29T06:38:11.758226Z",
+          "estimated_finish_utc": "2026-10-28T07:00:11.803294Z",
+          "logical_now_utc": "2026-10-28T06:39:11.803294Z",
           "simulated_elapsed_seconds": 60,
-          "simulation_extra_seconds": 59.99991645896807
+          "simulation_extra_seconds": 59.99991483311169
         },
         "tool_results": [
           {
@@ -786,7 +786,7 @@
                 "kind": "search_materials",
                 "reusable": true,
                 "status": "succeeded",
-                "step_id": "step_ac8b26bfbb284e918dd9ab080d44d0a5"
+                "step_id": "step_23e8a050c2394a468ac26020017ab497"
               }
             ],
             "violations": []
@@ -795,11 +795,11 @@
             "action": "estimate_cost",
             "artifact_ids": [],
             "budget_gap": "2.00",
-            "candidate_id": "candidate_37fc864bdfd3e1e784caf4ba",
+            "candidate_id": "candidate_aee90fbcd8aba5e20a8435ef",
             "cost_delta": "0.00",
             "error": null,
-            "estimate_id": "estimate_2bc06e4ac7be4baf984add6a585ab75d",
-            "estimated_finish_utc": "2026-10-28T05:37:17.530434Z",
+            "estimate_id": "estimate_cb4eb925b9ce4475ab805b6cc148210e",
+            "estimated_finish_utc": "2026-10-28T07:00:11.799735Z",
             "feasible": false,
             "max_rounds": 12,
             "projected_total": "12.00",
@@ -816,8 +816,8 @@
                   "目标和受众为规划假设，待运营确认"
                 ],
                 "audience": "校园读者",
-                "candidate_id": "candidate_37fc864bdfd3e1e784caf4ba",
-                "estimate_id": "estimate_2bc06e4ac7be4baf984add6a585ab75d",
+                "candidate_id": "candidate_aee90fbcd8aba5e20a8435ef",
+                "estimate_id": "estimate_cb4eb925b9ce4475ab805b6cc148210e",
                 "goal": "推广主题活动",
                 "material_ids": [
                   "reading-1",
@@ -826,11 +826,11 @@
                 "revision": 1,
                 "variant": "premium"
               },
-              "candidate_id": "candidate_37fc864bdfd3e1e784caf4ba",
+              "candidate_id": "candidate_aee90fbcd8aba5e20a8435ef",
               "candidate_revision": 1,
-              "context_digest": "45833e519468a2ecab408f4e0a2afe7e427b35c9dcb64a87c12f34f4126335bb",
-              "estimate_id": "estimate_2bc06e4ac7be4baf984add6a585ab75d",
-              "estimated_finish_utc": "2026-10-28T05:37:17.530434Z",
+              "context_digest": "434fbcf95af69c86887a878494de43b2151b651e18a0f30b5e9340b192814682",
+              "estimate_id": "estimate_cb4eb925b9ce4475ab805b6cc148210e",
+              "estimated_finish_utc": "2026-10-28T07:00:11.799735Z",
               "feasible": false,
               "gap_scope": "current_candidate",
               "projected_total_minor": 1200,
@@ -840,7 +840,7 @@
                 "reading-1",
                 "reading-2"
               ],
-              "rules_digest": "1ad67b19144c7684094296dc25dd4c0afd588ca04459cc8348be4cf8e9d564d6",
+              "rules_digest": "cffcea911b5da232a8ac3c7bda5d83ceb64ec5558cc2727340de5057adad350d",
               "spent_at_quote": 0,
               "violations": [
                 "budget_exceeded"
@@ -860,18 +860,18 @@
                 "kind": "search_materials",
                 "reusable": true,
                 "status": "succeeded",
-                "step_id": "step_ac8b26bfbb284e918dd9ab080d44d0a5"
+                "step_id": "step_23e8a050c2394a468ac26020017ab497"
               },
               {
                 "artifact_ids": [],
                 "candidate_revision": 1,
                 "depends_on": [
-                  "step_ac8b26bfbb284e918dd9ab080d44d0a5"
+                  "step_23e8a050c2394a468ac26020017ab497"
                 ],
                 "kind": "estimate_cost",
                 "reusable": true,
                 "status": "succeeded",
-                "step_id": "step_c08058006e904879b1f373dc5818eeb0"
+                "step_id": "step_795971d2a2254bad88425786741911b2"
               }
             ],
             "violations": [
@@ -909,25 +909,25 @@
                 "kind": "search_materials",
                 "reusable": true,
                 "status": "succeeded",
-                "step_id": "step_ac8b26bfbb284e918dd9ab080d44d0a5"
+                "step_id": "step_23e8a050c2394a468ac26020017ab497"
               },
               {
                 "artifact_ids": [],
                 "candidate_revision": 1,
                 "depends_on": [
-                  "step_ac8b26bfbb284e918dd9ab080d44d0a5"
+                  "step_23e8a050c2394a468ac26020017ab497"
                 ],
                 "kind": "estimate_cost",
                 "reusable": true,
                 "status": "succeeded",
-                "step_id": "step_c08058006e904879b1f373dc5818eeb0"
+                "step_id": "step_795971d2a2254bad88425786741911b2"
               }
             ],
             "violations": []
           }
         ],
         "trace_ref": {
-          "run_id": "run_0363f05f45b54e22af0973e65230a6f3"
+          "run_id": "run_62b8165e012042ffa8b5b686fbae63ae"
         }
       },
       "execution": {
@@ -943,12 +943,12 @@
           "--request-id",
           "no-feasible",
           "--state",
-          ".state/evaluation-763a4c748fa846d198b79e23ddf97c2f.db",
+          ".state/evaluation-b21016cf6ce449cf8a67a634acd7fe4c.db",
           "--data-dir",
           "examples/fixtures/no-feasible"
         ],
-        "started_at": "2026-10-28T05:15:17.588552+00:00",
-        "elapsed_seconds": 0.040927,
+        "started_at": "2026-10-28T06:38:11.868573+00:00",
+        "elapsed_seconds": 0.052008,
         "exit_code": 3,
         "stderr": ""
       }

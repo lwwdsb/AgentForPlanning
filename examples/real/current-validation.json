@@ -1,0 +1,49 @@
+{
+  "scope": "Both paths executed against the same v5 prompt, schema and implementation. Content is saved as a draft requiring operator review.",
+  "cases": {
+    "budget-replan": {
+      "request_id": "real-budget-replan-20261028T064128Z-a63420",
+      "evidence_directory": "content-planning-v5/budget-replan",
+      "elapsed_seconds": 13.827712875092402,
+      "simulation_spent": "8.00",
+      "format": "image_text",
+      "copy_chars": 277,
+      "scene_count": 0,
+      "config": {
+        "decision_policy_version": "content-planning-v5",
+        "endpoint": "https://api.deepseek.com/beta/chat/completions",
+        "execution_contract": "structured-delivery-v1",
+        "fault": "none",
+        "implementation_digest": "cf08bfff83acc209cd9474ccef826d38ef2373d48ca8b924898defcef34e3e42",
+        "max_rounds": 12,
+        "mode": "real",
+        "model": "deepseek-flash",
+        "prompt_digest": "97dd5ac01b31f9981f91ead7c2ac7b64e26c1a83b6bad6928567b2788773736c",
+        "provider_profile": "deepseek-beta-nonthinking-v1",
+        "tool_schema_digest": "e116c4741ea98621122676362eb09936db9adf4197e4f2f1120c01d6bcd92f7d"
+      }
+    },
+    "tool-failure": {
+      "request_id": "real-tool-failure-20261028T064104Z-426a9a",
+      "evidence_directory": "content-planning-v5/tool-failure",
+      "elapsed_seconds": 15.709948000032455,
+      "simulation_spent": "3.00",
+      "format": "short_copy",
+      "copy_chars": 65,
+      "scene_count": 0,
+      "config": {
+        "decision_policy_version": "content-planning-v5",
+        "endpoint": "https://api.deepseek.com/beta/chat/completions",
+        "execution_contract": "structured-delivery-v1",
+        "fault": "generate-once",
+        "implementation_digest": "cf08bfff83acc209cd9474ccef826d38ef2373d48ca8b924898defcef34e3e42",
+        "max_rounds": 12,
+        "mode": "real",
+        "model": "deepseek-flash",
+        "prompt_digest": "97dd5ac01b31f9981f91ead7c2ac7b64e26c1a83b6bad6928567b2788773736c",
+        "provider_profile": "deepseek-beta-nonthinking-v1",
+        "tool_schema_digest": "e116c4741ea98621122676362eb09936db9adf4197e4f2f1120c01d6bcd92f7d"
+      }
+    }
+  }
+}
