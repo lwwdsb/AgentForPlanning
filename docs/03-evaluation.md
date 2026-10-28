@@ -60,7 +60,7 @@
 | FR-022 | examples/real/README.md；T046 未完成 | 未验证，按用户安排延后 |
 | FR-023 | 113 项 pytest；本表；pytest.xml 与 clean-pytest.xml | 离线通过 |
 | FR-024 | README、src、tests、data、examples、docs、依赖、.env.example；只读导出测试 | 本地材料通过 |
-| FR-025 | 选题 2；GitHub 公开仓库已核对；最终 SHA 在提交后报告 | 远端提交核验待收尾 |
+| FR-025 | 选题 2；GitHub 公开仓库已核对；最终 SHA 在提交后报告 | 已推送公开仓库，最终 SHA 见交付消息 |
 | SC-001 | normal：费用 8.00，720 秒合成工具耗时，6 轮，有方案和依赖 | 离线通过 |
 | SC-002 | missing-budget/deadline/both；empty 与输入校验测试 | 离线通过 |
 | SC-003 | budget-replan 12→8；no-feasible 缺口 2.00 | Mock 通过；真实决策未验证 |
@@ -69,7 +69,7 @@
 | SC-006 | 上限 1、最后一轮 11/12、无效动作与模型错误计轮 | 离线通过 |
 | SC-007 | Decimal、未知费用、依赖、过期报价、时间等于/不足/已过边界 | 离线通过 |
 | SC-008 | 完整 Trace 与至少三类场景已有；两条真实路径缺失 | 部分完成 |
-| SC-009 | 干净环境复现、五份文档、实际用时；真实模型与最终提交状态分别披露 | 部分完成，见交付状态 |
+| SC-009 | 干净环境复现、五份文档、实际用时；真实模型与最终提交状态分别披露 | 离线交付完成；真实模型效果未验证 |
 
 测试文件：[CLI](../tests/test_cli.py)、[执行器](../tests/test_runner.py)、[领域规则](../tests/test_domain.py)、[SQLite](../tests/test_store.py)、[模型协议](../tests/test_provider_contract.py)。完整验收定义见 [规格](../specs/001-content-planning-agent/spec.md)。
 
@@ -87,6 +87,6 @@
 
 - 题号：选题 2（用户确认）。
 - 仓库：[lwwdsb/AgentForPlanning](https://github.com/lwwdsb/AgentForPlanning)，已通过 GitHub API 确认公开，当前账号 ADMIN；公开读取无需评审账号授权。
-- 最终 commit SHA：待本轮完成提交后，用 git rev-parse HEAD 的实际值在交付消息报告；不写入同一提交。
+- 最终 commit SHA：本地实现及证据已推送 main；以 git rev-parse HEAD 和远端分支核对后的实际值在交付消息报告，不写入同一提交。
 - 真实模型验证 T046：保持未完成，按用户安排稍后配置。
-- 最终远端提交核验 T052：当前收尾中，成功核对远端后再标记。
+- 远端提交 T052：已完成，选题 2、公开 URL 与实际提交均可核对；最终 SHA 在交付消息报告。

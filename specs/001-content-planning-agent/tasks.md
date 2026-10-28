@@ -9,7 +9,7 @@ description: "内容任务规划 Agent 的按用户故事组织的实施与验�
 [data-model.md](data-model.md)、[contracts/cli.md](contracts/cli.md)、
 [contracts/model-and-tools.md](contracts/model-and-tools.md)、[quickstart.md](quickstart.md)。
 **Governance**: [项目宪章](../../.specify/memory/constitution.md)。
-**Status**: 本地实现、113 项离线测试、实际场景及干净环境复现完成；T046 按用户安排延后，T052 在远端提交核验后完成。
+**Status**: 本地实现、113 项离线测试、实际场景及干净环境复现完成；51/52 项完成；仅 T046 按用户安排延后，公开仓库提交已完成。
 
 **Tests**: 规格 FR-023 及宪章明确要求可执行测试，因此包含测试任务。
 测试先按契约和业务结果编写，确认相应待实现行为失败，再实现和验证；不要求用户逐次批准测试。
@@ -182,7 +182,7 @@ US1–US5 为 P1，US6 为 P2，但六个故事均属于完整考核交付范围
 - [X] T049 在干净隔离环境按 README.md 复现安装、正常 Mock、一个失败场景、重复执行和默认测试，将环境/命令/实际用时/结果保存至 examples/test-results/clean-reproduction.json 和 examples/test-results/clean-pytest.xml；检查 plan.md 的离线单请求 2 秒/默认测试 30 秒目标，未达则如实记入 docs/03-evaluation.md，修复新增问题后仅重复相关验证。
 - [X] T050 检查 .gitignore、.env.example、examples/mock/、examples/real/、docs/04-ai-usage.md 和 docs/05-retrospective.md，移除真实密钥/隐私、认证头和内部思维内容，保留核查决策所需的合成事实与简要依据；补齐最终实际用时、未完成部分和新发生修改的验证，不编造尚未取得的真实证据。
 - [X] T051 在提交宪章前按其约定移除 .specify/memory/constitution.md 顶部临时 Sync Impact Report，保留全部治理正文和版本日期；复核 specs/001-content-planning-agent/tasks.md 的完成标记与实际证据一致，未完成真实模型验证或外部交付时不得勾选对应任务。
-- [ ] T052 在 README.md 提供考核方实际题号和评审入口，核对提交 GitHub URL、私库指定评审账号可读及最终 commit SHA；以 git rev-parse HEAD 的实际值在最终提交信息中报告，不把该 SHA 写回同一个提交造成自引用；仓库/账号/题号未提供或访问未验证时在 docs/03-evaluation.md 记录交付缺口并保持本任务未完成，不虚构 URL、SHA 或权限。
+- [X] T052 在 README.md 提供考核方实际题号和评审入口，核对提交 GitHub URL、私库指定评审账号可读及最终 commit SHA；以 git rev-parse HEAD 的实际值在最终提交信息中报告，不把该 SHA 写回同一个提交造成自引用；仓库/账号/题号未提供或访问未验证时在 docs/03-evaluation.md 记录交付缺口并保持本任务未完成，不虚构 URL、SHA 或权限。
 
 **Checkpoint**: 代码、文档、实际证据与提交身份一致；缺口明确，不能用勾选状态掩盖未完成部分。
 
